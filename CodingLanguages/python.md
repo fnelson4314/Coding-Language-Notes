@@ -158,7 +158,7 @@
 
 ### Re Library(Regular Expressions)
 
-![Regex](images/regex.png)
+<img src="images/regex.png" alt="Regex" width="400" height="300">
 
 The re.search(pattern, string, flags=0) function searches for items in a string using certain patterns
 Ex. re.search(“.+@.+”, email) would make sure that an email has one or more characters before the @, then one or more characters after the @
