@@ -53,15 +53,15 @@
 - **while <condition>:**
   - Can use **break** to get out of loop
   - Can use **continue** to continue to the next iteration of the loop
-- **for <var> in range(<num>):**
+- **for someVariable in range(someNum):**
   - Goes from 0 up to but not including num
-- Can also do **for <var> in range(<start>, <end>):**
+- Can also do **for someVariable in range(start, end):**
   - Goes from start up to but not including end
-- Can also do **for <var> in range(<start>, <end>, <step>):**
+- Can also do **for var in range(start, end, step):**
   - Step is how much to increment by
   - Can input -1 for step to count backwards
-- To loop through a list, you can do **for <var> in <some list>:**
-  - If you want to apply something to every var in the list in one go, you can do **<function> for <var> in <some list>**
+- To loop through a list, you can do **for var in list:**
+  - If you want to apply something to every var in the list in one go, you can do **someFunction for var in list**
     - Ex. **word.upper() for word in words:**
 
 ### Random module
