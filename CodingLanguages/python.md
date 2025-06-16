@@ -16,136 +16,149 @@
 - **map(function, iterable, …)** allows you to map a function to every item in the iterable
   - Ex. **uppercased = map(str.upper, words)**
 
-# Basics
+### Basics
 
 - **print()** for printing
   - Ex. **print(“Hello world!”)**
   - Syntax: **print(\*objects, sep=’ ‘, end = ‘\n’)**
 - **input()** for taking input. Always returns a string
   - Ex. **myName = input(“What is your name?: “)**
-- Can parse using things like **int()** or **str()** or **float()** \* Ex. **int(‘6’)**
-  len() for getting the length of a string
-  Ex. len(“Hello”) returns 5
-  Boolean values are True and False and None
+- Can parse using things like **int()** or **str()** or **float()** \*
+  - Ex. **int(‘6’)**
+- **len()** for getting the length of a string
+  - Ex. **len(“Hello”)** returns 5
+- Boolean values are **True** and **False** and **None**
 
-Conditionals
-Comparison operators you can use
-and
-Ex. True and False returns False
-or
-Ex. True or False returns True
-not
-not True returns False
-!=
-==
-<
+### Conditionals
 
-> # <=
->
-> Can use if, elif, or else statements
-> The in keyword allows you to check if a characters or string of characters is in a list, tuple, string, or dictionary
-> Ex. if “@” in email:
+- Comparison operators you can use
+  - **and**
+    - Ex. True and False returns False
+  - **or**
+    - Ex. True or False returns True
+  - **not**
+    - not True returns False
+  - **!=**
+  - **==**
+  - **<**
+  - **>**
+  - **<=**
+  - **>=**
+- Can use if, elif, or else statements
+- The **in** keyword allows you to check if a characters or string of characters is in a list, tuple, string, or dictionary
+  - Ex. **if “@” in email:**
 
-Loops
-while <condition>:
-Can use break to get out of loop
-Can use continue to continue to the next iteration of the loop
-for <var> in range(<num>):
-Goes from 0 up to but not including num
-Can also do for <var> in range(<start>, <end>):
-Goes from start up to but not including end
-Can also do for <var> in range(<start>, <end>, <step>):
-Step is how much to increment by
-Can input -1 for step to count backwards
-To loop through a list, you can do for <var> in <some list>:
-If you want to apply something to every var in the list in one go, you can do <function> for <var> in <some list>
-Ex. word.upper() for word in words:
+### Loops
 
-Random module
-import random
-Can do from random import \* so that you don’t have to do random. in front of functions. It’s better not to do this for readability
-random.randint(<start>, <end>)
-Gives a random integer between start to end
-random.choice(<some list, tuple, or range of values>) picks a random value from the sequence given
+- **while <condition>:**
+  - Can use **break** to get out of loop
+  - Can use **continue** to continue to the next iteration of the loop
+- **for <var> in range(<num>):**
+  - Goes from 0 up to but not including num
+- Can also do **for <var> in range(<start>, <end>):**
+  - Goes from start up to but not including end
+- Can also do **for <var> in range(<start>, <end>, <step>):**
+  - Step is how much to increment by
+  - Can input -1 for step to count backwards
+- To loop through a list, you can do **for <var> in <some list>:**
+  - If you want to apply something to every var in the list in one go, you can do **<function> for <var> in <some list>**
+    - Ex. **word.upper() for word in words:**
 
-Functions
-def functionName(<parameters>...):
-Call a function by functionName(<arguments>...)
-Can create unnamed functions using the lambda keyword
-Syntax: lambda params, …: returnStatement
-Ex. lambda student: student[“name”]
+### Random module
 
-Error catching
-try:
-except <ErrorName>:
-The raise keyword is used to raise an exception
-Ex. raise ValueError(“Missing name”)
+- **import random**
+  - Can do **from random import \*** so that you don’t have to do random. in front of functions. It’s better not to do this for readability
+- **random.randint(<start>, <end>)**
+  - Gives a random integer between start to end
+- **random.choice(<some list, tuple, or range of values>)** picks a random value from the sequence given
 
-Lists
-Ex. spam = [‘cat’, ‘bat’, ‘rat’]
-Can get data from list using indexing: spam[0] which would equal cat
-Can do negative indexes to go from the back like spam[-1] is rat
-Slicing a list allows us to get multiple values
-Ex. spam[1:3] would give us [‘bat’, ‘rat’]
-Can do spam[:2] to start from the beginning and going up to index 1
-Can do spam[2:] to start from index 2 and go to the end
-Can delete from a list using del
-Ex. del spam[2]
-Can use list() function to change a string to a list
-Ex. list(“Hello”) returns [“H”, “e”, “l”, “l”, “o”]
-Can use the in keyword to see if an item is in a list
-Ex. ‘hi’ in [‘yo’, ‘hi’, ‘hello’]
-Can use for loops with lists
-Ex. for i in [1,2,3,4]
-Can add to list using .append() which adds a value to the end
-Ex. list.append(“apple”)
+### Functions
 
-Json and command line arguments
+- **def functionName(<parameters>...):**
+- Call a function by **functionName(<arguments>...)**
+- Can create unnamed functions using the **lambda** keyword
+  - Syntax: **lambda params, …: returnStatement**
+  - Ex. **lambda student: student[“name”]**
 
-Can do import sys
-Gives access to sys.argv which is a list of all the command line arguments
-Can do import requests
-Allows you to do requests.get(<some url>) which gives a request object full of data back from the url
-Can do import json
-Allows you to turn data into json format which allows for nicer reading and manipulating with .json()
+### Error catching
 
-Correct Main Function
-To correctly have a main function in python, it needs to be done like this:
-if **name** == “**main**”:
-**name** holds the name of the current module
-**main** is the name of the scope where top-level code executes
-When a python file is run directly, the interpreter assings the string “**main**” to the built in **name** variable of that file.
+- **try:**
+- **except <ErrorName>:**
+- The **raise** keyword is used to raise an exception
+  - Ex. **raise ValueError(“Missing name”)**
 
-Unit Testing
-Use assert statements to test
-Ex. assert square(3) == 9
-Can install pytest using pip to allow for more readable output when testing
-No need for a main method anymore
-Called on the command line instead of python
-Ex. pytest test_calculator.py
+### Lists
 
-File I/O
-To open a file, use the open() function with syntax: open(“filename”, <“r”, “w”, “a”> )
-This returns a file object to use so you should assign to a variable when using open()
-r is for reading mode which is also the default mode when opening so no need to specify
-.readlines() is a method that reads all the lines in a file and returns a list
-Can also just iterate over the lines in a file using for line in file:
-w is for writing mode which creates a file and allows you to write to it. Overwrites a file if it already exists
-To write to a file, use the .write(var) function
-Ex. file.write(name)
-a is for append mode which creates a file and allows you to add to a file instead of overwriting
-Ex. file = open(“names.txt”, “w”)
-To close a file, do file.close() which saves the file
-If you don’t want to manually close the file, you could use the with keyword
-Ex. with open(“names.txt”, “w”) as file:
+- **Ex. spam = [‘cat’, ‘bat’, ‘rat’]**
+- Can get data from list using indexing: **spam[0]** which would equal **cat**
+  - Can do negative indexes to go from the back like **spam[-1]** is **rat**
+- Slicing a list allows us to get multiple values
+  - Ex. **spam[1:3]** would give us **[‘bat’, ‘rat’]**
+  - Can do **spam[:2]** to start from the beginning and going up to index 1
+  - Can do **spam[2:]** to start from index 2 and go to the end
+- Can delete from a list using del
+  - Ex. **del spam[2]**
+- Can use **list()** function to change a string to a list
+  - Ex. **list(“Hello”)** returns **[“H”, “e”, “l”, “l”, “o”]**
+- Can use the **in** keyword to see if an item is in a list
+  - Ex. **‘hi’ in [‘yo’, ‘hi’, ‘hello’]**
+- Can use for loops with lists
+  - Ex. **for i in [1,2,3,4]**
+- Can add to list using **.append()** which adds a value to the end
+  - Ex. **list.append(“apple”)**
 
-csv files
-Can import csv to work with some csv functions to make reading files easier
-csv.reader(file) allows for much easier handling of gathering data
-csv.writer(file) allows for writing to csv files and creating neat output
-Can use writer.writerow([var, var, …]) to write to a csv file
+### Json and command line arguments
 
-Re Library(Regular Expressions)
+- Can do **import sys**
+  - Gives access to **sys.argv** which is a list of all the command line arguments
+- Can do **import requests**
+  - Allows you to do **requests.get(<some url>)** which gives a request object full of data back from the url
+- Can do **import json**
+  - Allows you to turn data into json format which allows for nicer reading and manipulating with **.json()**
+
+### Correct Main Function
+
+- To correctly have a main function in python, it needs to be done like this:
+  - **if **name** == “**main**”:**
+- \***\*name\*\*** holds the name of the current module
+- \***\*main\*\*** is the name of the scope where top-level code executes
+  - When a python file is run directly, the interpreter assings the string “**main**” to the built in **name** variable of that file.
+
+### Unit Testing
+
+- Use **assert** statements to test
+  - Ex. **assert square(3) == 9**
+- Can install pytest using pip to allow for more readable output when testing
+  - No need for a main method anymore
+  - Called on the command line instead of python
+    - Ex. **pytest test_calculator.py**
+
+### File I/O
+
+- To open a file, use the **open()** function with syntax: **open(“filename”, <“r”, “w”, “a”> )**
+  - This returns a file object to use so you should assign to a variable when using open()
+  - **r** is for reading mode which is also the default mode when opening so no need to specify
+    - **.readlines()** is a method that reads all the lines in a file and returns a list
+    - Can also just iterate over the lines in a file using **for line in file:**
+  - **w** is for writing mode which creates a file and allows you to write to it. Overwrites a file if it already exists
+    - To write to a file, use the **.write(var)** function
+      - Ex. **file.write(name)**
+  - **a** is for append mode which creates a file and allows you to add to a file instead of overwriting
+  - Ex. **file = open(“names.txt”, “w”)**
+- To close a file, do **file.close()** which saves the file
+- If you don’t want to manually close the file, you could use the **with** keyword
+  - Ex. **with open(“names.txt”, “w”) as file:**
+
+### csv files
+
+- Can **import csv** to work with some csv functions to make reading files easier
+- **csv.reader(file)** allows for much easier handling of gathering data
+- **csv.writer(file)** allows for writing to csv files and creating neat output
+  - Can use **writer.writerow([var, var, …])** to write to a csv file
+
+### Re Library(Regular Expressions)
+
+![Regex](images/regex.png)
 
 The re.search(pattern, string, flags=0) function searches for items in a string using certain patterns
 Ex. re.search(“.+@.+”, email) would make sure that an email has one or more characters before the @, then one or more characters after the @
