@@ -101,34 +101,34 @@
   - **$Fellowship = @{“Wizard” = “Gandalf”; “Hobbit” = “Frodo”; “Elf = “Legolas” }**
 - To add to a hash table, you can use the **.Add()** function
   - **$Fellowship.Add(“Dwarf”, “Gimli”)**
-•	To set/update an item, use the .Set_Item() function
-o	$Fellowship.Set_Item(“Dwarf”, “Bilbo”)
-•	To get data from a hash table
-o	$Fellowship.”Dwarf” or you can do normally $Fellowship[“Dwarf”]
-•	To remove data from a data table
-o	$Fellowship.Remove(“Dwarf”)
+- To set/update an item, use the **.Set_Item()** function
+  - **$Fellowship.Set_Item(“Dwarf”, “Bilbo”)**
+- To get data from a hash table
+  - **$Fellowship.”Dwarf” or you can do normally $Fellowship[“Dwarf”]**
+- To remove data from a data table
+  - **$Fellowship.Remove(“Dwarf”)**
 
 
-Conditional Statements
+### Conditional Statements
 
-•	To do an if-else statement:
-o	$PokemonNum = 25
-o	If ($PokemonNum -ge 0 -and $PokemonNum -le 151) {Write-Host “The same!”}
-o	Elseif ($PokemonNum -ge 152 -and $PokemonNum -le 251) {Write-Host “Something”}
-o	Else {Write-Host “Not the same!}
-•	Switch statement:
-o	Switch ($outputType.ToLower()) {
-	“table” {}
-	“json” {}
-	Default {}
-o	}
+- To do an if-else statement:
+  - **$PokemonNum = 25**
+  - **If ($PokemonNum -ge 0 -and $PokemonNum -le 151) {Write-Host “The same!”}**
+  - **Elseif ($PokemonNum -ge 152 -and $PokemonNum -le 251) {Write-Host “Something”}**
+  - **Else {Write-Host “Not the same!}**
+- Switch statement:
+  - **Switch ($outputType.ToLower()) {**
+    - **“table” {}**
+    - **“json” {}**
+    - **Default {}**
+  - **}**
 
 
 
-Loops
-•	For Loops:
-o	For($counter = 0; $counter -le 3; $counter++) {
-•	For each loop:
-o	Foreach($peep in $HaloPeeps) {
-•	While loop:
-o	While($counter -ne 6) {
+### Loops
+- For Loops:
+  - **For($counter = 0; $counter -le 3; $counter++) {**
+- For each loop:
+  - **Foreach($peep in $HaloPeeps) {**
+- While loop:
+  - **While($counter -ne 6) {**
