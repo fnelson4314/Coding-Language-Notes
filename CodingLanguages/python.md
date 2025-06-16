@@ -119,10 +119,10 @@
 ### Correct Main Function
 
 - To correctly have a main function in python, it needs to be done like this:
-  - **if **name** == “**main**”:**
-- \***\*name\*\*** holds the name of the current module
-- \***\*main\*\*** is the name of the scope where top-level code executes
-  - When a python file is run directly, the interpreter assings the string “**main**” to the built in **name** variable of that file.
+  - **if \_\_name\_\_ == “\_\_main\_\_”:**
+- **\_\_name\_\_** holds the name of the current module
+- **\_\_main\_\_** is the name of the scope where top-level code executes
+  - When a python file is run directly, the interpreter assings the string “\_\_main\_\_” to the built in \_\_name\_\_ variable of that file.
 
 ### Unit Testing
 
@@ -160,69 +160,72 @@
 
 <img src="images/regex.png" alt="Regex" width="400" height="300">
 
-The re.search(pattern, string, flags=0) function searches for items in a string using certain patterns
-Ex. re.search(“.+@.+”, email) would make sure that an email has one or more characters before the @, then one or more characters after the @
-You can also put an “r” in front of the quotes to make python interpret it as a raw string
-Ex. re.search(r”.+@.+\.edu”, email) which would make the function allow the backslash to not be a literal backslash to look for, but a normal python backslash that allows a period to be looked for
-You can also add a “^” at the start to indicate the start of the string and a “$” at the end to indicate the end of the string
-Ex. re.search(r”^.+@.+\.edu$”, email)
-[] can be used to restrict the input to a set of characters that you want and [^] can be used to represent anything BUT what is in the brackets
-Ex. re.search(r”^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.edu”, email)
-You can also use \w to represent a word character which is alnum plus \_
-Object-Oriented Programming
-To create a class object, use the class keyword
-Ex. class Student:
-When initializing the instance variables for a class, initialize them in the **init** function
-Syntax: def **init**(self, param, …):
-Ex. def **init**(self, name, house):
-self.name = name
-self.house = house
-To create an instance of this class, do student = Student(“Harry”, “Gryffindor”)
-The **str** function can be used in a class to provide a string representation for the class data
-Ex. def **str**(self):
-return f”{self.name} from {self.house}”
-@property can be put above a getter method in order for it to be called anytime that instance variable is accessed. This is where error checking should be done
-When returning the variable, it is common convention to use an underscore in front of the variable so they variable names don’t collide
-@property
-def house(self):
-return self.\_house
-@<attribute_name>.setter is used to create a setter method and where error checking should be done as well
-@house.setter
-def house(self, house):
-self.\_house = house
-@classmethod can be put at the top of a class method in order to allow it to be called without an instance of the class being present
-Instead of self at the start of the parameters, you put cls instead
-Can be called like Student.get()
-@classmethod
-def get(cls):
-name = input(“Name: “)
-house = input(“House: “)
-return cls(name, house)
+- The **re.search(pattern, string, flags=0)** function searches for items in a string using certain patterns
+  - Ex. **re.search(“.+@.+”, email)** would make sure that an email has one or more characters before the @, then one or more characters after the @
+  - You can also put an “r” in front of the quotes to make python interpret it as a raw string
+    - Ex. **re.search(r”.+@.+\.edu”, email)** which would make the function allow the backslash to not be a literal backslash to look for, but a normal python backslash that allows a period to be looked for
+  - You can also add a “^” at the start to indicate the start of the string and a “$” at the end to indicate the end of the string
+    - Ex. **re.search(r”^.+@.+\.edu$”, email)**
+  - **[]** can be used to restrict the input to a set of characters that you want and **[^]** can be used to represent anything BUT what is in the brackets
+    - Ex. **re.search(r”^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.edu”, email)**
+- You can also use \w to represent a word character which is alnum plus \_
 
-Inheritance
-If you would like to inherit the characteristics of a super class, you can create a subclass like this:
-If the superclass is the class Wizard, then the subclass can be class Student(Wizard):
-When doing the **init** method for the subclasses and you want inherit the attributes from the superclass, insert super().**init**(params…)
+### Object-Oriented Programming
 
-Sets
-Sets are like lists, but they do not allow duplicates
-Can create a set using var = set()
-To add to a set, you can do var.add(item)
+- **To create a class object, use the **class\*\* keyword
+  - Ex. **class Student:**
+- When initializing the instance variables for a class, initialize them in the **\_\_init\_\_** function
+  - Syntax: **def \_\_init\_\_(self, param, …):**
+  - Ex. **def \_\_init\_\_(self, name, house):**
+    - **self.name = name**
+    - **self.house = house**
+- To create an instance of this class, do **student = Student(“Harry”, “Gryffindor”)**
+- The **\_\_str\_\_** function can be used in a class to provide a string representation for the class data
+  - **Ex. def \_\_str\_\_(self):**
+    - **return f”{self.name} from {self.house}”**
+- **@property** can be put above a getter method in order for it to be called anytime that instance variable is accessed. This is where error checking should be done
+  - When returning the variable, it is common convention to use an underscore in front of the variable so they variable names don’t collide
+  - **@property**
+  - **def house(self):**
+    - **return self.\_house**
+- **@<attribute_name>.setter** is used to create a setter method and where error checking should be done as well
+  - **@house.setter**
+  - **def house(self, house):**
+    - **self.\_house = house**
+- **@classmethod** can be put at the top of a class method in order to allow it to be called without an instance of the class being present
+  - Instead of self at the start of the parameters, you put **cls** instead
+  - Can be called like **Student.get()**
+  - **@classmethod**
+  - **def get(cls):**
+    - **name = input(“Name: “)**
+    - **house = input(“House: “)**
+    - **return cls(name, house)**
 
-Unpacking lists
-Lists can be unpacked using an asterisk in order to turn them into a single string
-Ex. uppercased = [“This”, “is”, “CS50”]
-print(\*uppercased) returns THIS IS CS50 as a string instead of [“THIS”, “IS”, “CS50”]
+### Inheritance
 
-Args and Kwargs
-*args can be used to take in a variable number of arguments for a function
-def f(*args):
-print(“Positional: “, args)
+- If you would like to inherit the characteristics of a super class, you can create a subclass like this:
+  - If the superclass is the class Wizard, then the subclass can be **class Student(Wizard):**
+  - When doing the \_\_init\_\_ method for the subclasses and you want inherit the attributes from the superclass, insert **super().\_\_init\_\_(params…)**
 
-Called like f(100, 50, 25, 10)
+### Sets
 
-**kwargs can be used to take in multiple keyword arguments and returns a dictionary
-def f(**kwargs):
-print(“Named:” kwargs)
+- Sets are like lists, but they do not allow duplicates
+- Can create a set using **var = set()**
+- To add to a set, you can do **var.add(item)**
 
-f(galleons=100, sickles=50, knuts=25);
+### Unpacking lists
+
+- Lists can be unpacked using an asterisk in order to turn them into a single string
+  - Ex. **uppercased = [“This”, “is”, “CS50”]**
+  - **print(\*uppercased)** returns **THIS IS CS50** as a string instead of **[“THIS”, “IS”, “CS50”]**
+
+### Args and Kwargs
+
+**\*args** can be used to take in a variable number of arguments for a function - **def f(\*args):** - **print(“Positional: “, args)**
+
+- Called like **f(100, 50, 25, 10)**
+
+- **\*\*kwargs** can be used to take in multiple keyword arguments and returns a dictionary
+  - **def f(**kwargs):\*\*
+    - **print(“Named:” kwargs)**
+- **f(galleons=100, sickles=50, knuts=25);**
