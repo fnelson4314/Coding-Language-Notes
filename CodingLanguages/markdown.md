@@ -11,4 +11,4 @@
 - Unordered list: Start with \-
 - Ordered list: start with 1.
 - Inline code block: Surround code with `
-- Images: \!\Image description](.jpg file)
+- Images: \![Image description](.jpg file)
