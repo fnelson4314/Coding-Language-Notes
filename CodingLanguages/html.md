@@ -24,4 +24,4 @@
     - \_parent - Opens the doument in the parent frame
     - \_top - Opens the dosument in the full body of the window
   - You can also use an image as a link. Just put the \<img> tag in the \<a> tag
-    - **\<a hre"default.asp"><img src="smiley.gif"></a>** 
+    - **\<a hre"default.asp">\<img src="smiley.gif">\</a>** 
