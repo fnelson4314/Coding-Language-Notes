@@ -15,7 +15,7 @@
 
 ### Attributes
 
-- \<a> tag defines a hyperlink [site](https://www.w3schools.com/tags/tag_a.asp)
+- [<a>](https://www.w3schools.com/tags/tag_a.asp) tag defines a hyperlink 
   - **\<a href="website hyperlink"> Text that you want<\/a>**
   - Make sure to put quotes around hyperlink but not the text that you want seen
   - the target attribute specifies where to open the linked document
