@@ -1,0 +1,10 @@
+# Markdown
+
+- **#**: Used for headers. The more #, the smaler the header
+- Italics: Surround text with \* or \_
+- Bold: Surround text with \*\*
+- Strike through: Surround text with \~\~
+- Horizontal line: Do three - (---) or three _ (___)
+- Block quote: Start line with >
+- Links: **[Text for link](link)**
+  - **\[This is a link](inserlink.com)**
