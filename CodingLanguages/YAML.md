@@ -21,6 +21,25 @@
   - Two spaces are used as one level of indentation
 - Dictionaries are represented in key: value form and the colon must be followed by a space
 
+### Example
+
+`
+---
+- name: My First Playbook
+- hosts: all
+
+
+  tasks:
+    - name: Ping my hosts
+      ansible.builtin.ping:
+
+    - name: Print message
+      ansible.builtin.debug:
+        msg: Hello world!
+
+...
+`
+
 ### Running Ansible Playbooks
 
 - To run a play book, do **ansible-playbook yourplaybookname.yml**
