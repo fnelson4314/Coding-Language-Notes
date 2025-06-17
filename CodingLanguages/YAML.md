@@ -23,7 +23,7 @@
 
 ### Example
 
-`
+```yaml
 ---
 - name: My First Playbook
 - hosts: all
@@ -38,7 +38,7 @@
         msg: Hello world!
 
 ...
-`
+```
 
 ### Running Ansible Playbooks
 
