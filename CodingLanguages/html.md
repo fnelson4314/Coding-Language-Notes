@@ -37,7 +37,7 @@
   - Can use \<br> by itself for a line break or just pressing "enter"
 - [\<h1-h6>](https://www.w3schools.com/tags/tag_hn.asp) tag is for headers
   - **\<h1 style ="font-size:60px;"> Heading 1\<h1>**
-- The \<pre> tag preserves all preformatted texts including spaces and line breaks
+- [\<pre>](https://www.w3schools.com/tags/tag_pre.asp) tag preserves all preformatted texts including spaces and line breaks
 
  ### Formatting
 
