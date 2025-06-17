@@ -32,10 +32,10 @@
 - branch - allows you to see your current branches
   -  Ex. git branch
 - checkout - allows you to create a new branch
-  - Ex. git checkout -b branch **branch name** (the -b is for creating a new branch)
-  - git checkout **branch name** for switching to different branch
+  - Ex. **git checkout -b branchName** (the -b is for creating a new branch)
+  - **git checkout branchName** for switching to different branch
 - diff - Allows you to see the difference in changes between branches
-  - Ex. git diff **branch name**
+  - Ex. **git diff branchName**
 - merge - Merges two branches
-  - Should be in current branch you want to merge into then **git merge branch name**
-- Can delete using **git branch -d branch name**   
+  - Should be in current branch you want to merge into then **git merge branchName**
+- Can delete using **git branch -d branchName**   
