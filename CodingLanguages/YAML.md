@@ -8,6 +8,7 @@
 - **Play**: An ordered list of tasks that maps to managed nodes in an inventory.
 - **Task**: A list of one or more modules that defines the operations that Ansible performs.
 - **Module**: A unit of code or binary that Ansible runs on managed nodes.
+- **Inventory**: A list of hosts and groups that Ansible can call on. Usually done in YAML
 
 ### Basic Syntax
 
@@ -16,6 +17,8 @@
 - An empty line should be added to the end of the playbook
 - **name** at the top defines the name of the Ansible playbook
 - **hosts** defines which hosts execute the playbook
+  - If you choose to place "all" in for the host, that will refer to all hosts and groups that you have specified in your inventory
+  - You can also specify certain groups that you want as well instead of "all"
 - **tasks** is the list of tasks for the playbook to execute
 - All members of a list are lines beginning at the same indentation level starting with a dash and a space("- ")
   - Two spaces are used as one level of indentation
@@ -40,8 +43,11 @@
 ...
 ```
 
+- The **ansible.builtin.\*** parts of the code are the Ansible modules which are small programs that automate specific tasks
+
 ### Running Ansible Playbooks
 
-- To run a play book, do **ansible-playbook yourplaybookname.yml**
-  -  **--verbose** flag can be used to see detailed output
+- To run a play book, do **ansible-playbook yourplaybookname.yml -i inventoryFile.yml**
+  - The -i specifies the inventory file to use
+  -  **--verbose or -v** flag can be used to see detailed output
 - To run it in check mode which executes a playbook without applying any alterations to your system, do **ansible-playbook --check yourplaybookname.yml**
