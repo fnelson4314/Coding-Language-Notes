@@ -46,7 +46,9 @@ class Meeting(models.Model)
   date = models.DateField()
   start_time = models.TimeField(default=time(9))
   duration = models.IntegerField(default=1)
+  room = models.ForeignKey(Room, on_delete=models.CASCADE) #Room is a separate class not shown and the cascade means that when a room is deleted, so will all meetings in that room
 
+  #This method allows a nicer string representation to be shown in the admin interface
   def __str__(self):
     return f"{self.title} at {self.start_time} on {self.date}"
 ```
