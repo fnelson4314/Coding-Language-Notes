@@ -128,8 +128,7 @@ def detail(request, id):
 
 ### Template Inheritance
 
-- Since many things in the template blocks are repeated, we should try to avoid this
-We can have our parent file with all the repeated stuff
+Since many things in the template blocks are repeated, we should try to avoid this. To avoid it, we can have our parent file with all the repeated code
 ```html
 {% load static %}
 <!DOCTYPE>
@@ -146,5 +145,19 @@ We can have our parent file with all the repeated stuff
 </html>
 ```
 
-Then our child
+Then our child file with the filler code. title and content can be changed to different variables, but must be the same on the child files
+```html
+{% extends "base.html" %}
+
+{% block title %}Meeting: {{meeting.title}}{% endblock %}
+
+{% block content %}
+<h1>{{meeting.title}}</h1>
+<p>
+  This meeting has been scheduled on {{meeting.date}}, at {{meeting.start_time}} in <strong>{{meeting.room}</strong>
+</p>
+
+<a href="{% url 'welcome' %}">Home</a>
+{% endblock %}
+```
 
