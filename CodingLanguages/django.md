@@ -64,4 +64,23 @@ class Meeting(models.Model)
 - In order to login to the admin, you need to create a user account in terminal with **python manage.py createsuperuser**
 - With this, you will be able to access and modify your table data
 
+### Model, View, and Template
 
+- Instead of the normal MVC pattern that other programs may follow, django uses an MVT pattern or model, view, and template
+- A "templates"(it should be named exactly like this) folder should be created inside your app folder where we will house our .html files
+- In views, we can begin bringing in some template content to show on your website using **render** which renders a given template and returns an  HttpResponse object
+```python
+from django.shortcuts import render
+
+def welcome(request):
+  return render(request, "website/welcome.html") # The file path should be done relative to the "templates" folder
+```
+
+### Template variables and dyncamic content
+
+- To add onto the render method, more context can be added with the syntax **render(request, \<template>, \<Some dictionary>)**
+```python
+return render(request, "website/welcome.html", {"message": "This data was sent from the view to the template"})
+```
+- Variables inside the template can be called using double curly braces ({{     }})
+  - **{{message}}**
