@@ -1,15 +1,14 @@
 # Django
 
-### Quick Important Commands
+### Quick Important Terminal Commands
 
-- **python manage.py runserver**
-  - Starts the django server
-- **python manage.py startapp appName**
-  - Creates a package that will hold our new app
-- **python manage.py makemigrations**
-  - Looks at our current models and determines what changes we need to make to the database in order to match our model columns
-- **python manage.py migrate**
-  - Initializes our table and database
+- **python manage.py runserver** starts the django server
+- **python manage.py startapp appName** creates a package that will hold our new app
+- **python manage.py makemigrations** looks at our current models and determines what changes we need to make to the database in order to match our model columns
+- **python manage.py migrate** initializes our table and database
+
+### Miscellaneous Notes
+- **\<model>.objects.count()** - Every model/database has an "objects" attribute that can be called on
 
 
 ### Getting Started
@@ -31,7 +30,7 @@
 - **admin.py** - Holds the content for providing admin access to a database
 - **models.py** - Holds the content of all the models used for our databases
 - **urls.py** - Holds all of the url additions and url paths that can be added to as you add more views
-- **views.py**
+- **views.py** - Should contain all the code for rendering visual output to the website usually having functions that use templates
  
 ### Setting up a data model
 
@@ -67,6 +66,7 @@ class Meeting(models.Model)
 ### Model, View, and Template
 
 - Instead of the normal MVC pattern that other programs may follow, django uses an MVT pattern or model, view, and template
+- Templates are basically incomplete html files waiting to be filled in by the programmer
 - A "templates"(it should be named exactly like this) folder should be created inside your app folder where we will house our .html files
 - In views, we can begin bringing in some template content to show on your website using **render** which renders a given template and returns an  HttpResponse object
 ```python
@@ -78,9 +78,41 @@ def welcome(request):
 
 ### Template variables and dyncamic content
 
-- To add onto the render method, more context can be added with the syntax **render(request, \<template>, \<Some dictionary>)**
+- To add onto the render method, more context can be added with the syntax **render(request, \<template>, \<Some dictionary for the template context>)**
 ```python
 return render(request, "website/welcome.html", {"message": "This data was sent from the view to the template"})
 ```
 - Variables inside the template can be called using double curly braces ({{     }})
   - **{{message}}**
+- Loops are possible as well in the templates using {%   %}
+```html
+<ul>
+  {% for meeting in meetings %}
+    <li>
+      <a href="/meetings/{{meeting.id}}">
+        {{meeting.title}}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+```
+
+### Retrieving data from a database
+
+- **\<model>.objects.\<method/attribute>** - Every model class has a .objects attribute that can be called on
+- **.count()** can be used to get the total number of objects in the current database
+- **.get()** can be used to retrieve a specific item from a database
+  - Can add the argument **.get(pk=\<var>)** in order to specify the primary key you want to grab
+  - Could also use the method **get_object_or_404(\<modelClass>, pk=id)** which either gets the object or returns a HTTP 404 not found error
+    - Need to do **from django.shortcuts import get_object_or_404** to use
+- **.all()** returns all objects in the database as a list
+```python
+def detail(request, id):
+  meeting = Meeting.objects.get(pk=id)
+  return render(request, "meetings/detail.html", {"meeting", meeting})
+```
+- This example id can be specified with a new url path in urls.py by doing **path('meetings/<int:id>, detail)**
+
+### URLs and Link Building
+
+- 
