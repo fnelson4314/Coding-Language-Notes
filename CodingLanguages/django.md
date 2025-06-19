@@ -85,7 +85,7 @@ return render(request, "website/welcome.html", {"message": "This data was sent f
 - Variables inside the template can be called using double curly braces ({{     }})
   - **{{message}}**
 - Loops are possible as well in the templates using {%   %}
-```html
+```
 <ul>
   {% for meeting in meetings %}
     <li>
