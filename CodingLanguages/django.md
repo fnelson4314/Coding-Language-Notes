@@ -9,7 +9,7 @@
 - **python manage.py makemigrations**
   - Looks at our current models and determines what changes we need to make to the database in order to match our model columns
 - **python manage.py migrate**
-  - Runs the SQL and our model to create a table 
+  - Initializes our table and database
 
 
 ### Getting Started
