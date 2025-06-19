@@ -26,12 +26,33 @@
     - For the home page, just put in empty '' for the urlAddition
   - Might need to import as well, for example, **from website.views import welcome**
  
+### Parts of the django project
+
+- **admin.py** - Holds the content for providing admin access to a database
+- **models.py** - Holds the content of all the models used for our databases
+- **urls.py** - Holds all of the url additions and url paths that can be added to as you add more views
+- **views.py**
+ 
 ### Setting up a data model
 
 - Creating database models is done with the class **from django.db import models**
 - When creating the model class, it is done like:
-  - **class Meeting(models.Model)**
-    - **title = models.CharField(max_length=200)**
-    - **date = models.DateField()**
+```python
+class Meeting(models.Model)
+  title = models.CharField(max_length=200)
+  date = models.DateField()
+  start_time = models.TimeField()
+  duration = models.IntegerField()
+```
 - Run **python manage.py makemigrations** in order to look at our current model and create a migration in our migrations folder to prepare our table to be made
 - Run **python manage.py migrate** in order to run the SQL and create the table
+
+### Admin interface
+
+- This is normally already in your admin.py file, but **from django.contrib import admin** is needed at the top
+- In admin.py, import the model you want to give admin privilages to **from .models import Meeting**
+- Then you can add **admin.site.register(\<model>)**
+- In order to login to the admin, you need to create a user account in terminal with **python manage.py createsuperuser**
+- With this, you will be able to access and modify your table data
+
+
