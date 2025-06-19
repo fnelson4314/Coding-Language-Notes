@@ -85,17 +85,18 @@ return render(request, "website/welcome.html", {"message": "This data was sent f
 - Variables inside the template can be called using double curly braces ({{     }})
   - **{{message}}**
 - Loops are possible as well in the templates using {%   %}
-```
+```html
 <ul>
   {% for meeting in meetings %}
     <li>
-      <a href="/meetings/{{meeting.id}}">
+      <a href="{% url 'detail' meeting.id %}">
         {{meeting.title}}
       </a>
     </li>
   {% endfor %}
 </ul>
 ```
+- Doing this would require us to change our url path to **path('meetings/\<int:id>', detail, name="detail")** in order for the url template tag to find 'detail'
 
 ### Retrieving data from a database
 
@@ -115,4 +116,35 @@ def detail(request, id):
 
 ### URLs and Link Building
 
-- 
+- The **include()** method can be used to include urls from another file and simply add on to the current path
+  - Let's say on the main url page we had **path('meetings/', include('meetings.urls'))**. This would append/include all the other url paths on the given file to the 'meetings/' url
+  - Need to do **from django.urls import include** to use
+ 
+### Styling
+
+- You should add a "static" folder with another folder with the app name inside and this is where your CSS files will go
+- In order to connect your style sheet to your templates, add **{% load static %}** at the top of your template file and add **\<link rel="stylesheet" href="{% static 'website/style.css' %}">**
+- To add in an image, **\<img src="{% static 'wevsite/calendar.png' %}" width="100px">**
+
+### Template Inheritance
+
+- Since many things in the template blocks are repeated, we should try to avoid this
+We can have our parent file with all the repeated stuff
+```html
+{% load static %}
+<!DOCTYPE>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'website/style.css' %}">
+</head>
+<body>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
+```
+
+Then our child
+
