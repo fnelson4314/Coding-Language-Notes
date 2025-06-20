@@ -161,3 +161,36 @@ Then our child file with the filler code. title and content can be changed to di
 {% endblock %}
 ```
 
+### User Interaction/Forms
+
+In order to insert a form, you must first have a form tag for it to go in
+```html
+<form method="post">
+  <table>
+    {{ form }}
+  </table>
+  {% csrf_token %}
+  <button type="submit">Create</button>
+</form>
+```
+- Django already has something built in for forms
+  - They can be accessed by importing **from django.forms import modelform_factory**
+  - This can be captured using **MeetingForm = modelform_factory(<Model> exclude=[])**
+ 
+Then to use this, do:
+```html
+def new(request):
+  if request.method == "POST":
+    form = MeetingForm(request.POST)
+    if form.is_valid():
+      form.save()
+      return redirect("welcome")
+  else:
+    form = MeetingForm()
+  return render(request, "meetings/new.html", {"form", form})
+```
+
+- The **redirect(\<url>)** method takes you to the specified page
+  - Need to do **from django.shortcuts import redirect**
+- The **.is_valid()** method checks to make sure the inputs are valid before saving to our database
+- The "request" object has an attribute ".method" that let's us know if it is GET, POST, PUT, or DELETE
