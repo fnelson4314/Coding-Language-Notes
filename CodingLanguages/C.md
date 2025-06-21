@@ -12,7 +12,7 @@
 - Switch statements
 - Break and continue statements
 - Functions
-- Ex. ![Functions](images/funtctions.png)
+- Ex. ![Functions](images/functions.png)
 
 ## New things
 
