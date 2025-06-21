@@ -168,207 +168,224 @@
 - Can be initialized with **char arr_name[ size ] = “string”;** Can also put no size
 - Need enough space for the string length and the null terminator
 - ![](images/iterateList.png)
-  Don’t need an & sign when passing into printf() function
+- Don’t need an **&** sign when passing into **printf()** function
 
-Using string functions
-Use library #include <string.h>
-strlen( char array) obtains string length
-Strlen gets size of string, sizeof gets size of whole array
-strcpy(char dest[], char src[]); copies from src to dest
-strncpy(char dest[], char src[], size_t n); Limits the number of characters written to dest. Pads with 0’s up to n
-Won’t null terminate if it runs out of room
-strcmp( char s1[], char s2[] ); compares strings
-Returns less than 0 if s1 before s2
-Returns greater than 0 if s1 after s2
-Returns 0 if equals
-Stops when it hits null terminator or char where they differ
-strcat( char dest[], char src[]); copies the string from src to end of dest
-Overwrites the null and adds it to the end
-strncat( char dest[], char src[], size_t n); lets you put a bound on string being appended
-atoi(char str[]); parses an int out of a string (declared in stdlib.h)
-atof(char str[]) for doubles
-atol(char str[]) for long ints
+### Using string functions
 
-File I/O and Strings
+- Use library **#include \<string.h>**
+- **strlen( char array)** obtains string length
+  - Strlen gets size of string, sizeof gets size of whole array
+- **strcpy(char dest[], char src[]);** copies from src to dest
+- **strncpy(char dest[], char src[], size_t n);** Limits the number of characters written to dest. Pads with 0’s up to n
+  - Won’t null terminate if it runs out of room
+- **strcmp( char s1[], char s2[] );** compares strings
+  - Returns less than 0 if s1 before s2
+  - Returns greater than 0 if s1 after s2
+  - Returns 0 if equals
+  - Stops when it hits null terminator or char where they differ
+- **strcat( char dest[], char src[]);** copies the string from src to end of dest
+  - Overwrites the null and adds it to the end
+- **strncat( char dest[], char src[], size_t n);** lets you put a bound on string being appended
+- **atoi(char str[]);** parses an int out of a string (declared in **stdlib.h**)
+- **atof(char str[])** for doubles
+- **atol(char str[])** for long ints
 
-FILE *stream = fopen( “file-name.txt”, “r” );
-To open a file
-Returns null on failure
-Can do r for read or w for write
-int fprintf(FILE *stream, const char *format, ...);
-int fscanf(FILE *stream, const char *format, ...);
-int fclose( FILE *stream );
-int fgetc(FILE *stream);
-int fputc(int ch, FILE *stream);
-int ungetc(int c, FILE *stream);
-Pushes character back onto the given stream
-Clears the EOF condition
-int rewind( FILE *stream );
-To reread or rewrite a file from the start
-fprintf( stderr, "Can't open input file\n" );
-scanf( “%[A-Z]”, str );
-Can put in exactly what characters to match
-Here we’re looking for any uppercase characters
-Can also do a-z
-scanf( “%[^\n]”, str );
-^ allows us to negate characters so this is anything but a newline
-scanf( “ %c”, &ch );
-Skips whitespace then reads a character (Because of the space in front of %c
-sscanf( buffer, “%d%f”, &iVar, &fVar );
-Allows you to parse the contents of a string
-Can also include the %n identifier to report how many characters it’s read so far
+### File I/O and Strings
 
-Command Line Arguments
+- FILE \*stream = fopen( “file-name.txt”, “r” );
+  - To open a file
+  - Returns null on failure
+  - Can do r for read or w for write
+- int fprintf(FILE *stream, const char *format, ...);
+- int fscanf(FILE *stream, const char *format, ...);
+- int fclose( FILE \*stream );
+- int fgetc(FILE \*stream);
+- int fputc(int ch, FILE \*stream);
+- int ungetc(int c, FILE \*stream);
+  - Pushes character back onto the given stream
+  - Clears the EOF condition
+- int rewind( FILE \*stream );
+  - To reread or rewrite a file from the start
+- fprintf( stderr, "Can't open input file\n" );
+- scanf( “%[A-Z]”, str );
+  - Can put in exactly what characters to match
+  - Here we’re looking for any uppercase characters
+  - Can also do a-z
+- scanf( “%[^\n]”, str );
+  - allows us to negate characters so this is anything but a newline
+- scanf( “ %c”, &ch );
+  - Skips whitespace then reads a character (Because of the space in front of %c
+- sscanf( buffer, “%d%f”, &iVar, &fVar );
+  - Allows you to parse the contents of a string
+  - Can also include the %n identifier to report how many characters it’s read so far
 
-int main( int argc, char \*argv[] )
-argc is the number of arguments(including the file call)
-argv is the array of the command line arguments
+### Command Line Arguments
 
-Dynamic Memory Allocation
+- **int main( int argc, char \*argv[] )**
+  - argc is the number of arguments(including the file call)
+  - argv is the array of the command line arguments
 
-int _list = (int _) malloc(1000 * sizeof(int));
-This allocates a 1000-element array of ints
-Free memory with void free (void *ptr)
-Do free(list) to free the list we created
-Void *realloc(void *ptr, size*t size);
-The pointer is to previous memory then the size is the size we need now
-Ex. list = (int *) realloc( list, capacity _ sizeof(int));
-void *memcpy( void *dest, void const *src, size_t n );
-void *memmove( void *dest, void const *src, size_t n );
-void \_memset( void _, int c, size_t n );
+### Dynamic Memory Allocation
 
-Pointers
+- int _list = (int _) malloc(1000 \* sizeof(int));
+  - This allocates a 1000-element array of ints
+- Free memory with **void free (void \*ptr)**
+  - Do **free(list)** to free the list we created
+- Void *realloc(void *ptr, size\*t size);
+  - The pointer is to previous memory then the size is the size we need now
+  - Ex. **list = (int \*) realloc( list, capacity \_ sizeof(int));**
+- void **\*memcpy( void *dest, void const *src, size_t n );**
+- void **\*memmove( void *dest, void const *src, size_t n );**
+- void **\_memset( void \_, int c, size_t n );**
 
-Void qsort(void *base, size_t nmemb, size_t size,int(*compar)(const void _,const void _));
-Base is the start of the array
-Nmemb is the number of items
-Size if the size of each item
-Compar is the comparison rule which returns negative, zero, or positive
-Ex. qsort(list, 8, sizeof(list[0]), myComp);(The function compares two elem)
+### Pointers
 
-Structs
+- Void qsort(void *base, size_t nmemb, size_t size,int(*compar)(const void _,const void _));
+  - Base is the start of the array
+  - Nmemb is the number of items
+  - Size if the size of each item
+  - Compar is the comparison rule which returns negative, zero, or positive
+  - Ex. **qsort(list, 8, sizeof(list[0]), myComp);** (The function compares two elem)
 
+### Structs
+
+```c
 struct Person {
-char name[10];
-double height;
-int age;
+	char name[10];
+	double height;
+	int age;
 };
+```
 
-struct Person p1 to initialize a struct
-Or struct Person p2 = { “William”, 1.85, 27 };
-Access fields like p1.height = 1.75;
-Can’t do p1.name = “Mary”, can only initialize when first creating an instance or scanf
+- **struct Person p1** to initialize a struct
+- Or **struct Person p2 = { “William”, 1.85, 27 };**
+- Access fields like **p1.height = 1.75;**
+- Can’t do **p1.name = “Mary”**, can only initialize when first creating an instance or scanf
 
+```c
 struct Grade {
-double minimum;
-char letter;
+	double minimum;
+	char letter;
 } aGrade = { 90.0, ‘A’ };
+```
 
-Can declare struct variables along with the struct definition and can also take away the structure name if you won’t ever use it again
-If a struct is passed as a pointer, you can use the arrow (->) instead of a dot
-Ex. Instead of (\*ptr).field we can do ptr->field
+- Can declare struct variables along with the struct definition and can also take away the structure name if you won’t ever use it again
+- If a struct is passed as a pointer, you can use the arrow (->) instead of a dot
+  - Ex. Instead of **(\*ptr).field** we can do **ptr->field**
 
-Dynamically Allocating Structs
+### Dynamically Allocating Structs
 
-struct Event _e = (struct Event _) malloc( sizeof( struct Event));
+- struct Event _e = (struct Event _) malloc( sizeof( struct Event));
+- ![](images/arrayStruct.png)
 
-typedef
+### typedef
 
-Make a complicated name shorter using typedef
-Ex.
+- Make a complicated name shorter using typedef
+  Ex.
 
+```c
 typedef int Row[ 20 ];
 Row _table;
 table = (Row _) malloc( 50 \* sizeof( Row ) );
+```
 
 With structs:
 
+```c
 struct EventStruct {
-char name[ 10 ];
-int hour, minute;
+	char name[ 10 ];
+	int hour, minute;
 };
 
 typedef struct EventStruct Event;
 
 Event evt1 = { “Map”, 2, 5 };
+```
 
 Can also do:
 
+```c
 typedef struct EventStruct {
-char name[ 10 ];
-int hour, minute;
+	char name[ 10 ];
+	int hour, minute;
 } Event;
+```
 
-Valgrind
-valgrind --tool=memcheck --leak-check=full ./tcrypt key-b.txt plain-b.txt output.bin
-For memory errors
-valgrind --track-fds=yes ./tcrypt key-b.txt plain-b.txt output.bin
-For open files
+### Valgrind
 
-Bit Operations
-Friends of ~
-~ flips all bits
-! swaps true and false (111100011 becomes 00000000)
+- **valgrind --tool=memcheck --leak-check=full ./tcrypt key-b.txt plain-b.txt output.bin**
+  - For memory errors
+- **valgrind --track-fds=yes ./tcrypt key-b.txt plain-b.txt output.bin**
+  - For open files
 
-- performs the two’s complement operations
-  Operators
-  & is a bitwise and (1 only results if both inputs are 1)
-  ^ is a bitwise exclusive or (a 1 only results if both inputs are different)
-  | is a bitwise inclusive or (1 results if either input is a 1)
-  Shift operators
-  << x or >>x shifts bits to the right or left by x amount
-  Get new zeroes on the end of where it was shifted from or ones if signed
+### Bit Operations
 
-Masks are useful to only get certain bits you want
-Ex. 11010011 & 11110000 returns 11010000
-Then you can do 11010000 >>4 to get 00001101
-Could also choose to flip certain bits with ^ by placing 1’s where you want bits flipped
-Ex. 01101100 ^ 11001010 returns 10100110
+- Friends of ~
+  - ~ flips all bits
+  - ! swaps true and false (111100011 becomes 00000000)
+  - \- performs the two’s complement operations
+- Operators
+  - & is a bitwise and (1 only results if both inputs are 1)
+  - ^ is a bitwise exclusive or (a 1 only results if both inputs are different)
+  - | is a bitwise inclusive or (1 results if either input is a 1)
+- Shift operators
 
-Use %x to read in a number as hexadecimal
-Use %hx to read a value directly into an unsigned short
+  - << x or >>x shifts bits to the right or left by x amount
+  - Get new zeroes on the end of where it was shifted from or ones if signed
 
-Binary IO
-Use rb or wb to open and read or write a binary file
-size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);
-ptr is the array to write from
-size is the size of each element
-nmemb is the number of elements
-stream is the stream to write to
-size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+- Masks are useful to only get certain bits you want
+  - Ex. 11010011 & 11110000 returns 11010000
+  - Then you can do 11010000 >>4 to get 00001101
+- Could also choose to flip certain bits with ^ by placing 1’s where you want bits flipped
 
-stdlib
+  - Ex. 01101100 ^ 11001010 returns 10100110
 
-void perror( const char \*s ) : has short messages that it knows
-Ex. perror( “someFile.txt”);
-returns “someFile.txt: No such file or directory.”
-#include <math.h>
-link with gcc -Wall -std=c99 program.c -o program -lm
-M_E Base of the natural logarithm
-M_PI You know, π
-M_SQRT2 Square root of 2
-sin( x )
-tan( x )
-asin( x )
-atan( x )
-atan2( y, x )
-exp( x )
-exp2( x )
-exp10( x )
-log( x )
-log2( x )
-log10( x )
-pow( x, y )
-sqrt( x )
-round( x ) nearest integer (as a double)
-fabs( x ) absolute value
-floor( x ) largest integer no larger than x (as a double)
-ceil( x ) smallest integer no less than x (as a double)
-fmod( x, y )
+- Use **%x** to read in a number as hexadecimal
+- Use **%hx** to read a value directly into an unsigned short
 
-Enumerations
-enum ColorEnum { red, green, blue, orange }
-enum ColorEnum myColor = green;
-These are indexed with the first color having a value of 0 and the last one with 3
-typedef enum { up, down, left, right } Direction;
-Direction myDirection = right;
+### Binary IO
+
+- Use **rb** or **wb** to open and read or write a binary file
+- size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);
+  - ptr is the array to write from
+  - size is the size of each element
+  - nmemb is the number of elements
+  - stream is the stream to write to
+- size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+
+### stdlib
+
+- void perror( const char \*s ) : has short messages that it knows
+  - Ex. perror( “someFile.txt”);
+  - returns “someFile.txt: No such file or directory.”
+- **#include \<math.h>**
+  - link with gcc -Wall -std=c99 program.c -o program **-lm**
+  - M_E Base of the natural logarithm
+  - M_PI You know, π
+  - M_SQRT2 Square root of 2
+  - sin( x )
+  - tan( x )
+  - asin( x )
+  - atan( x )
+  - atan2( y, x )
+  - exp( x )
+  - exp2( x )
+  - exp10( x )
+  - log( x )
+  - log2( x )
+  - log10( x )
+  - pow( x, y )
+  - sqrt( x )
+  - round( x ) nearest integer (as a double)
+  - fabs( x ) absolute value
+  - floor( x ) largest integer no larger than x (as a double)
+  - ceil( x ) smallest integer no less than x (as a double)
+  - fmod( x, y )
+
+### Enumerations
+
+- enum ColorEnum { red, green, blue, orange }
+  - enum ColorEnum myColor = green;
+  - These are indexed with the first color having a value of 0 and the last one with 3
+- typedef enum { up, down, left, right } Direction;
+  - Direction myDirection = right;
