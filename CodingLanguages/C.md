@@ -5,14 +5,14 @@
 - Variable declarations
   - Are able to use char, short, int, long, float, and double
 - Can’t use byte and boolean
-- ![Arithmetic](arithmetic.png)
+- ![Arithmetic](images/arithmetic.png)
 - If statements
 - For loops
 - While loops
 - Switch statements
 - Break and continue statements
 - Functions
-- Ex. ![Functions](funtctions.png)
+- Ex. ![Functions](images/funtctions.png)
 
 ## New things
 
@@ -73,8 +73,8 @@
 ### Formatted Output
 
 - The **printf()** function is used for generating formatted output
-- ![](fstring.png)
-- ![](formatSpecifiers.png)
+- ![](images/fstring.png)
+- ![](images/formatSpecifiers.png)
 - Ex. **printf( "%6d\n", val );**
 
 ### Reading Formatted Input
@@ -86,7 +86,7 @@
 - Can pass in multiple conversion specifiers
 - Ex. **scanf( “%f%d”, &floatVal, &intVal );**
 - This method returns the number of specifiers matched
-- ![](scanf.png)
+- ![](images/scanf.png)
 
 ### Defining Constants
 
@@ -148,7 +148,7 @@
 ### Goto
 
 - Used instead of break in C
-- ![](goto.png)
+- ![](images/goto.png)
 
 ### Header Files
 
@@ -167,7 +167,7 @@
 - Has a zero byte(**\0**) to mark the end of a string
 - Can be initialized with **char arr_name[ size ] = “string”;** Can also put no size
 - Need enough space for the string length and the null terminator
-- ![](iterateList.png)
+- ![](images/iterateList.png)
   Don’t need an & sign when passing into printf() function
 
 Using string functions
@@ -230,12 +230,12 @@ int _list = (int _) malloc(1000 * sizeof(int));
 This allocates a 1000-element array of ints
 Free memory with void free (void *ptr)
 Do free(list) to free the list we created
-Void *realloc(void *ptr, size_t size);
+Void *realloc(void *ptr, size*t size);
 The pointer is to previous memory then the size is the size we need now
-Ex. list = (int _) realloc( list, capacity _ sizeof(int));
+Ex. list = (int *) realloc( list, capacity _ sizeof(int));
 void *memcpy( void *dest, void const *src, size_t n );
 void *memmove( void *dest, void const *src, size_t n );
-void _memset( void _, int c, size_t n );
+void \_memset( void _, int c, size_t n );
 
 Pointers
 
