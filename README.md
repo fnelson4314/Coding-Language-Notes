@@ -9,3 +9,4 @@ Included so far is:
 - Markdown
 - Powershell
 - Python
+- C
