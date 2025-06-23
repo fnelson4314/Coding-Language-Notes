@@ -161,6 +161,8 @@ Then our child file with the filler code. title and content can be changed to di
 {% endblock %}
 ```
 
+### Template Composition
+
 - {% include %} tags can be used to fully insert a template anywhere in your code.
 - Let's say in the file "templates/footer.html", you have:
 ```html
