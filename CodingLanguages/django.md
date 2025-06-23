@@ -161,6 +161,28 @@ Then our child file with the filler code. title and content can be changed to di
 {% endblock %}
 ```
 
+- {% include %} tags can be used to fully insert a template anywhere in your code.
+- Let's say in the file "templates/footer.html", you have:
+```html
+<div>HOME | {{ me }} | ABOUT | FORUM | {{ sponsor }}</div>
+```
+
+Then in the file "templates/template.html", you have:
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+{% include "mymenu.html" with me="TOBIAS" sponsor="W3SCHOOLS" %}
+
+<h1>Welcome</h1>
+
+<p>This is my webpage</p>
+
+</body>
+</html>
+```
+
 ### User Interaction/Forms
 
 In order to insert a form, you must first have a form tag for it to go in
