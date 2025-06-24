@@ -14,8 +14,17 @@
   - Can contain the same things
 - Comments are \<!-- Write your comment here -->
 
-### Attributes
+### Tags
 
+- [\<p>](https://www.w3schools.com/tags/tag_p.asp) tag is for paragraphs
+  - **\<p style="color:red;"> This is a red paragraph. \</p>**
+  - Can also do **\<p title="I'm a tooltip"> This is a paragraph \<p>**
+    - This is what shows up when hovering over the paragraph
+  - Can use \<hr> by itself to break up text and create a horizontal line or horizontal rule
+  - Can use \<br> by itself for a line break or just pressing "enter"
+- [\<h1-h6>](https://www.w3schools.com/tags/tag_hn.asp) tag is for headers
+  - **\<h1 style ="font-size:60px;"> Heading 1\<h1>**
+  - The larger the number, the smaller the text
 - [\<a>](https://www.w3schools.com/tags/tag_a.asp) tag defines a hyperlink 
   - **\<a href="website hyperlink"> Text that you want<\/a>**
   - Make sure to put quotes around hyperlink but not the text that you want seen
@@ -26,18 +35,14 @@
     - \_top - Opens the dosument in the full body of the window
   - You can also use an image as a link. Just put the \<img> tag in the \<a> tag
     - **\<a hre"default.asp">\<img src="smiley.gif">\</a>**
-- [\<img>](https://www.w3schools.com/tags/tag_img.asp) tag is used to embed an image in an html page
+- [\<img>](https://www.w3schools.com/tags/tag_img.asp) tag is used to embed an image in an html page. This is considered a self-closing tab since you don't need an ending tag
   - **\<img src="img_girl.jpg" alt="Girl with a jacket" width="500" height="600">**
   - Alt is what is used when an image doesn't load
-- [\<p>](https://www.w3schools.com/tags/tag_p.asp) tag is for paragraphs
-  - **\<p style="color:red;"> This is a red paragraph. \</p>**
-  - Can also do **\<p title="I'm a tooltip"> This is a paragraph \<p>**
-    - This is what shows up when hovering over the paragraph
-  - Can use \<hr> by itself to break up text and create a horizontal line or horizontal rule
-  - Can use \<br> by itself for a line break or just pressing "enter"
-- [\<h1-h6>](https://www.w3schools.com/tags/tag_hn.asp) tag is for headers
-  - **\<h1 style ="font-size:60px;"> Heading 1\<h1>**
 - [\<pre>](https://www.w3schools.com/tags/tag_pre.asp) tag preserves all preformatted texts including spaces and line breaks
+- [\<button>](https://www.w3schools.com/tags/tag_button.asp) tag creates a button that can be used for many purposes
+  - **\<button>Sign up!\</button>**
+- [\<input>](https://www.w3schools.com/tags/tag_input.asp) tag allows input that can take on many forms and types
+  - **\<input type="text" placeholder="Enter username">**
 
  ### Formatting
 
