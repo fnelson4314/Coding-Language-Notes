@@ -76,7 +76,7 @@ def welcome(request):
   return render(request, "website/welcome.html") # The file path should be done relative to the "templates" folder
 ```
 
-### Template variables and dyncamic content
+### Template variables and dynamic content
 
 - To add onto the render method, more context can be added with the syntax **render(request, \<template>, \<Some dictionary for the template context>)**
 ```python
