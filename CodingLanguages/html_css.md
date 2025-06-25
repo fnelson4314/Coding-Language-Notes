@@ -57,3 +57,19 @@
 - \<ins> - Inserted text
 - \<sub> - Subscript text
 - \<sup> - Superscript text
+
+
+# CSS
+
+Start your CSS connection by adding **\<link rel="stylesheet" href="nameOfFile.css">** to the head tag of your html file
+
+### Selectors
+
+- With basic tags like body, paragraphs(\<p>), headers, etc., you only need to put the tag name
+```css
+body {
+  color: red;
+}
+```
+
+
