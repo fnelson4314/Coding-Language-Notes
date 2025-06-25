@@ -44,6 +44,17 @@
 - [\<input>](https://www.w3schools.com/tags/tag_input.asp) tag allows input that can take on many forms and types
   - **\<input type="text" placeholder="Enter username">**
 
+### Classes/Ids
+
+Once you get into styling, it is very important that you have some way to distinguish your different blocks of code.
+
+- The "class" keyword can be used to assign a block of code to a certain class
+  - **\<div class="main">
+- 
+ 
+
+
+
  ### Formatting
 
 - Put before and after the text you want to be formatted
@@ -72,4 +83,31 @@ body {
 }
 ```
 
+- With class tags, you need to add a period then the class name
+```css
+.main {
+  margin-top: 300px;
+}
+```
+
+### Properties
+
+- color: Text color
+  - red, blue, yellow, etc.
+  - Can also do hexcolor codes such as #8B4513 which is a recipe for how much red, green, and blue is in the color
+- background: Background color
+  - red, blue, yellow, etc.  
+- font-size: Determines the size of your font
+  - 0px - 100px and beyond
+- font-weight: Dictates the thickness of the font
+  - lighter, normal, bold
+- text-align: positions your text
+  - left, center, or right
+- margin  
+- width/height: Sets width or height
+  - Done using pixels, percentages (so the size applies no matter the device or screen size)
+- display: Specifies the display behavior (the type of rendering box) of an element.
+  - **inline** causes the elements to stack up beside each other in a horizontal line
+  - **block** causes elements to stack on top of one another and each image blocks off space to the side of it
+  - 
 
