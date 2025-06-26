@@ -218,3 +218,67 @@ def new(request):
   - Need to do **from django.shortcuts import redirect**
 - The **.is_valid()** method checks to make sure the inputs are valid before saving to our database
 - The "request" object has an attribute ".method" that let's us know if it is GET, POST, PUT, or DELETE
+ 
+
+### Inserting data into your data tables
+
+Suppose you had an html file that looked like this:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Entry</title>
+</head>
+<body>
+    <h2>Patient Entry Form</h2>
+    <form method="post" action="{% url 'myapp:process_patient_entry' %}">
+        {% csrf_token %}
+        <label for="patient_name">Patient Name:</label>
+        <input type="text" name="patient_name" required>
+        <br>
+        <label for="blood_group">Blood Group:</label>
+        <input type="text" name="blood_group" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+```
+
+You could then create a model file with a model class in your models.py:
+```python
+from django.db import models
+
+class Patient(models.Model):
+    patient_name = models.CharField(max_length=255)
+    blood_group = models.CharField(max_length=10)
+
+    def __str__(self):
+        return f"{self.patient_name} - {self.blood_group}"
+```
+
+In your views.py file, you can then do:
+```python
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from .models import Patient
+
+def patient_entry(request):
+    return render(request, 'myapp/patient_entry.html')
+
+def process_patient_entry(request):
+    if request.method == 'POST':
+        patient_name = request.POST.get('patient_name')
+        blood_group = request.POST.get('blood_group')
+        
+        # Create a new patient entry in the database using the Patient model
+        patient = Patient(patient_name=patient_name, blood_group=blood_group)
+        patient.save()
+        # You can also do patient = Patient.objects.create(patient_name=patient_name, blood_group=blood_group) instead of the top two lines
+
+
+        return HttpResponse("Data successfully inserted!")
+    else:
+        return HttpResponse("Invalid request method.")
+```
