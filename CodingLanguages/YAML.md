@@ -1,5 +1,10 @@
 # YAML/Ansible
 
+### Beginning Notes/Terms
+- Configuration Management: The process of systematically managing, organizing, and controlling changes in the system. Helps in establishing and maintaining consistency of the system's performance and its functional and physical attributes
+- Infrastructure as Code (IaC): The process of managing and provisioning IT infrastructure through machine-readable definition files. Code files are used in place of manual processes.
+- Indentation in YAML files is very important and usually needs to be 2 spaces
+
 ### Important Terms
 
 - Playbooks consist of one or more plays, that contain tasks composed of modules
@@ -49,5 +54,5 @@
 
 - To run a play book, do **ansible-playbook yourplaybookname.yml -i inventoryFile.yml**
   - The -i specifies the inventory file to use
-  -  **--verbose or -v** flag can be used to see detailed output
+  - **--verbose or -v** flag can be used to see detailed output
 - To run it in check mode which executes a playbook without applying any alterations to your system, do **ansible-playbook --check yourplaybookname.yml**
