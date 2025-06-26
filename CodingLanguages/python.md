@@ -106,6 +106,22 @@
   - Ex. **for i in [1,2,3,4]**
 - Can add to list using **.append()** which adds a value to the end
   - Ex. **list.append(“apple”)**
+  - 
+
+### Dictionaries
+
+- Dictionaries are used to store data in key value pairs
+- Dictionary items are ordered, changeable, and do not allow duplicates
+```python
+thisdict {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+```
+- Items are called by the key name: **thisdict["brand"]**
+- The len() function can be used to get the length of a dictionary
+  - **len(thisdict)**
 
 ### Json and command line arguments
 
