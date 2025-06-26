@@ -1,17 +1,17 @@
 # Django
 
-### Quick Important Terminal Commands
+## Quick Important Terminal Commands
 
 - **python manage.py runserver** starts the django server
 - **python manage.py startapp appName** creates a package that will hold our new app
 - **python manage.py makemigrations** looks at our current models and determines what changes we need to make to the database in order to match our model columns
 - **python manage.py migrate** initializes our table and database
 
-### Miscellaneous Notes
+## Miscellaneous Notes
 - **\<model>.objects.count()** - Every model/database has an "objects" attribute that can be called on
 
 
-### Getting Started
+## Getting Started
 
 - To start a django project, you can run **django-admin startproject \<projectName>**
 - To run the django development server, run **python manage.py runserver**
@@ -25,14 +25,14 @@
     - For the home page, just put in empty '' for the urlAddition
   - Might need to import as well, for example, **from website.views import welcome**
  
-### Parts of the django project
+## Parts of the django project
 
 - **admin.py** - Holds the content for providing admin access to a database
 - **models.py** - Holds the content of all the models used for our databases
 - **urls.py** - Holds all of the url additions and url paths that can be added to as you add more views
 - **views.py** - Should contain all the code for rendering visual output to the website usually having functions that use templates
  
-### Setting up a data model
+## Setting up a data model
 
 - Creating database models is done with the class **from django.db import models**
 - When creating the model class, it is done like:
@@ -55,7 +55,7 @@ class Meeting(models.Model)
   - This will also be run whenever you made edits or editions to current models(Make sure you add defaults). It will create a new migration
 - Run **python manage.py migrate** in order to run the SQL and create the table
 
-### Admin interface
+## Admin interface
 
 - This is normally already in your admin.py file, but **from django.contrib import admin** is needed at the top
 - In admin.py, import the model you want to give admin privilages to **from .models import Meeting**
@@ -63,7 +63,7 @@ class Meeting(models.Model)
 - In order to login to the admin, you need to create a user account in terminal with **python manage.py createsuperuser**
 - With this, you will be able to access and modify your table data
 
-### Model, View, and Template
+## Model, View, and Template
 
 - Instead of the normal MVC pattern that other programs may follow, django uses an MVT pattern or model, view, and template
 - Templates are basically incomplete html files waiting to be filled in by the programmer
@@ -76,7 +76,7 @@ def welcome(request):
   return render(request, "website/welcome.html") # The file path should be done relative to the "templates" folder
 ```
 
-### Template variables and dynamic content
+## Template variables and dynamic content
 
 - To add onto the render method, more context can be added with the syntax **render(request, \<template>, \<Some dictionary for the template context>)**
 ```python
@@ -98,7 +98,7 @@ return render(request, "website/welcome.html", {"message": "This data was sent f
 ```
 - Doing this would require us to change our url path to **path('meetings/\<int:id>', detail, name="detail")** in order for the url template tag to find 'detail'
 
-### Retrieving data from a database
+## Retrieving data from a database
 
 - **\<model>.objects.\<method/attribute>** - Every model class has a .objects attribute that can be called on
 - **.count()** can be used to get the total number of objects in the current database
@@ -114,19 +114,19 @@ def detail(request, id):
 ```
 - This example id can be specified with a new url path in urls.py by doing **path('meetings/<int:id>, detail)**
 
-### URLs and Link Building
+## URLs and Link Building
 
 - The **include()** method can be used to include urls from another file and simply add on to the current path
   - Let's say on the main url page we had **path('meetings/', include('meetings.urls'))**. This would append/include all the other url paths on the given file to the 'meetings/' url
   - Need to do **from django.urls import include** to use
  
-### Styling
+## Styling
 
 - You should add a "static" folder with another folder with the app name inside and this is where your CSS files will go
 - In order to connect your style sheet to your templates, add **{% load static %}** at the top of your template file and add **\<link rel="stylesheet" href="{% static 'website/style.css' %}">**
 - To add in an image, **\<img src="{% static 'wevsite/calendar.png' %}" width="100px">**
 
-### Template Inheritance
+## Template Inheritance
 
 Since many things in the template blocks are repeated, we should try to avoid this. To avoid it, we can have our parent file with all the repeated code
 ```html
@@ -161,7 +161,7 @@ Then our child file with the filler code. title and content can be changed to di
 {% endblock %}
 ```
 
-### Template Composition
+## Template Composition
 
 - {% include %} tags can be used to fully insert a template anywhere in your code.
 - Let's say in the file "templates/footer.html", you have:
@@ -185,7 +185,7 @@ Then in the file "templates/template.html", you have:
 </html>
 ```
 
-### User Interaction/Forms
+## User Interaction/Forms
 
 In order to insert a form, you must first have a form tag for it to go in
 ```html
@@ -220,7 +220,7 @@ def new(request):
 - The "request" object has an attribute ".method" that let's us know if it is GET, POST, PUT, or DELETE
  
 
-### Inserting data into your data tables
+## Inserting data into your data tables
 
 Suppose you had an html file that looked like this:
 ```html
