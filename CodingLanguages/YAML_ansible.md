@@ -55,4 +55,42 @@
 - To run a play book, do **ansible-playbook yourplaybookname.yml -i inventoryFile.yml**
   - The -i specifies the inventory file to use
   - **--verbose or -v** flag can be used to see detailed output
-- To run it in check mode which executes a playbook without applying any alterations to your system, do **ansible-playbook --check yourplaybookname.yml**
+  - To run it in check mode which executes a playbook without applying any alterations to your system, do **ansible-playbook --check yourplaybookname.yml**
+ 
+
+### Important packages
+
+Understanding package use and parameters is very important and can be found at [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html)
+
+- apt: The package manager for debian/ubuntu and is used very frequently
+
+### Ansible Variables
+
+- Can contain letters, numbers, and underscores
+- Python and playbook keywords are not allowed
+- Cannot begin with a number
+- Created like so:
+  - **install_path: /opt/myapp**
+- Refrencing a variable:
+  - **dest: '{{ install_path }}/foo.cfg
+- Variables can be lists and dictionaries as well
+- Example YAML file:
+```yaml
+---
+- name: Create user on target system
+  hosts: target
+  vars:
+    username: demo_user
+    user_shell: /bin/bash
+
+  vars_files:
+    - secret.yml
+
+  tasks:
+    - name: Ensure user exists
+      user:
+        name: "{{ username }}"
+        password: "{{ user_password }}"
+        shell: "{{ user_shell }}"
+        state: present
+``` 
