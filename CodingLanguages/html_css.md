@@ -106,7 +106,7 @@ body {
 - margins: Add space to the outside of your elements
   - This can be done using pixels, percentage, and auto (which auomatically centers your element when using display: block or eats up the space of the side you choose like margin-left)
   - You can use margin-top, margin-left, margin-bottom, margin-right, or just margin
-  - Just margin with four values is in the form **margin: top right bottom left**
+  - margin with four values is in the form **margin: top right bottom left**
   - margin with three values is **margin: top left/right bottom**
   - margin with two values is **margin: top/bottom left/right**
   - margin with one value is all sides the same
