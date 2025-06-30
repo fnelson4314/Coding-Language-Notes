@@ -1,5 +1,7 @@
 # Python
 
+[Common functions](#common-functions)
+
 ### Common functions
 
 - **sorted(list)** returns a sorted list
