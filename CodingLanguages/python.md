@@ -207,6 +207,7 @@ thisdict {
   - **[]** can be used to restrict the input to a set of characters that you want and **[^]** can be used to represent anything BUT what is in the brackets
     - Ex. **re.search(r”^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.edu”, email)**
 - You can also use \w to represent a word character which is alnum plus \_
+- This will return a match object so you can do **\<var>.group(0)**
 
 ### Object-Oriented Programming
 
