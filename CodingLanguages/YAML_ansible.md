@@ -101,7 +101,15 @@ Understanding package use and parameters is very important and can be found at [
 An Ansible Role is a reusable and standalone component that encapsulates a set of Ansible tasks and configurations. Think of roles as the equivalent of functions/methods in traditional programming languages.
 
 - To create a new role, you can run the command **ansible-galaxy init my_role**
-- This creates a premade scaffolding of files including defaults, files, handlers, tasks, templates, meta, tests, and vars
+- This creates a premade scaffolding of files
+  - The **defaults/** directory houses a main.yml file that has your default variables with low precedence that can be easily overriden.
+  - The **files/** directory houses static files that you want to copy to remote hosts using the copy or fetch modules
+  - The **handlers/** directory contains main.yml for handlers whcih contain tasks triggered by notify statements (e.g., restarting a service after a config change)
+  - The **meta/** directory contains main.yml for for role metadata, such as dependencies on other roles.
+  - The **tasks/** directory contains main.yml for the main list of tasks to execute in the role. You can include other task files from here.
+  - The **templates/** directory is where you will place Jinja2 template files. Use the template module to render them on remote hosts.
+  - The **tests/** directory contains a sample test.yml playbook and inventory file for testing your role.
+  - The **vars/** directory contains main.yml for variables with higher precedence than those in defaults/.
 - This can then be used in your playbook like:
 ```yaml
 ---
@@ -123,6 +131,15 @@ An Ansible Template is a file that contains all your configuration parameters, b
   ServerName {{ server_name }}
   DocumentRoot {{ document_root }}
 </VirtualHost>
+```
+
+- An example of this being used in a playbook:
+```j2
+- name: Copy Apache configuration file
+  template:
+    src: apache2.conf.j2
+    dest: /etc/apache2/apache2.conf
+  notify: Restart Apache
 ```
 
 
