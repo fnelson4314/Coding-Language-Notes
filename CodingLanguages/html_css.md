@@ -101,13 +101,45 @@ body {
   - 0px - 100px and beyond
 - font-weight: Dictates the thickness of the font
   - lighter, normal, bold
-- text-align: positions your text
+- text-align: positions your elements
   - left, center, or right
-- margin  
+- margins: Add space to the outside of your elements
+  - This can be done using pixels, percentage, and auto (which auomatically centers your element when using display: block or eats up the space of the side you choose like margin-left)
+  - You can use margin-top, margin-left, margin-bottom, margin-right, or just margin
+  - Just margin with four values is in the form **margin: top right bottom left**
+  - margin with three values is **margin: top left/right bottom**
+  - margin with two values is **margin: top/bottom left/right**
+  - margin with one value is all sides the same
+- padding: Add space to the inside of your elements
+- border: Allows you to specify certain properties of your element borders
+  - **border: border-width border-style border-color**
+  - **border: 6px solid red**
+- border-radius: Allows you to adjust the sharpness of your corners
+  - **border-radius: 5px** 
 - width/height: Sets width or height
-  - Done using pixels, percentages (so the size applies no matter the device or screen size)
+  - Done using pixels, percentages (so the size applies no matter the device or screen size), and auto
+
 - display: Specifies the display behavior (the type of rendering box) of an element.
   - **inline** causes the elements to stack up beside each other in a horizontal line
   - **block** causes elements to stack on top of one another and each image blocks off space to the side of it
-  - 
+  - **flex** allows you to arrange the items as a flexbox
+ 
+### Flexbox
+
+- A flexbox consists of:
+  - A flex container which is the parent (container) \<div> element
+  - Flex items which are the items inside the container \<div>
+- Properties:
+  - flex-direction: Specifies the display direction of flex items in a container
+    - Can be row (default value), column, row-reverse (displays right to left), or column-reverse (displays bottom to top)
+  - flex-wrap: Specifies whether the flex items should wrap or not, if there is not enough room for them on one flex line
+    - Can be nowrap, wrap, wrap-reverse
+  - flex-flow: shorthand property for flex-direction and flex-wrap
+    - **flex-flow: flex-direction flex-wrap**
+  - justify-content: Used to align the flex items when the do not use all available space on the main-axis (horizontally)
+    - Can be center, flex-start (left), flex-end (right), space-around (space around items), space-between, space-evenly
+  - align-items: used to align flex items when they do not use all available space on the cross-axis (vertically)
+    - Can be center, flex-start (top), flex-end (bottom), stretch (stretches items so they fill to the bottom), baseline, normal
+  - align-content: Like align-items, but instead of aligning flex items, it aligns the flex lines
+    - Can be center, stretch (default), flex-start, flex-end, space-around, space-between, space-evenly
 
