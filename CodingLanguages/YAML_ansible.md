@@ -59,11 +59,13 @@
   - To run it in check mode which executes a playbook without applying any alterations to your system, do **ansible-playbook --check yourplaybookname.yml**
  
 
-### Important packages
+### Important packages/modules
 
 Understanding package use and parameters is very important and can be found at [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html)
 
 - apt: The package manager for debian/ubuntu and is used very frequently
+- register: Allows you to take the output of a task and store it in a variable for future use in your playbook
+  - **register: agent_dir**
 
 ### Ansible Variables
 
