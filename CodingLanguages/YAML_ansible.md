@@ -94,3 +94,30 @@ Understanding package use and parameters is very important and can be found at [
         shell: "{{ user_shell }}"
         state: present
 ``` 
+
+### Ansible Roles
+
+An Ansible Role is a reusable and standalone component that encapsulates a set of Ansible tasks and configurations. Think of roles as the equivalent of functions/methods in traditional programming languages.
+
+- To create a new role, you can run the command **ansible-galaxy init my_role**
+- This can then be used in your playbook like:
+```yaml
+---
+- hosts: all
+  roles:
+    - my_role
+```
+
+### Ansible Templates
+
+An Ansible Template is a file that contains all your configuartion parameters, but has dynamic values that get plugged in fom your Ansible playbooks or from your inventory, variables, etc. Templates use the Jinja2 templating language.
+
+- An example of a template may look like:
+```j2
+<VirtualHost *:80>
+  ServerName {{ server_name }}
+  DocumentRoot {{ document_root }}
+</VirtualHost>
+```
+
+ 
