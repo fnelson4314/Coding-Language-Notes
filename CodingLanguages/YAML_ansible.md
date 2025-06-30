@@ -24,6 +24,7 @@
 - **hosts** defines which hosts execute the playbook
   - If you choose to place "all" in for the host, that will refer to all hosts and groups that you have specified in your inventory
   - You can also specify certain groups that you want as well instead of "all"
+- A **become: yes** keyword can be added in order to give elevated privileges
 - **tasks** is the list of tasks for the playbook to execute
 - All members of a list are lines beginning at the same indentation level starting with a dash and a space("- ")
   - Two spaces are used as one level of indentation
@@ -100,6 +101,7 @@ Understanding package use and parameters is very important and can be found at [
 An Ansible Role is a reusable and standalone component that encapsulates a set of Ansible tasks and configurations. Think of roles as the equivalent of functions/methods in traditional programming languages.
 
 - To create a new role, you can run the command **ansible-galaxy init my_role**
+- This creates a premade scaffolding of files including defaults, files, handlers, tasks, templates, meta, tests, and vars
 - This can then be used in your playbook like:
 ```yaml
 ---
@@ -108,9 +110,12 @@ An Ansible Role is a reusable and standalone component that encapsulates a set o
     - my_role
 ```
 
+- To find pre-built roles, you can find lots on ansible galaxy that you can use for your playbooks
+- For example, this command can be run to download a docker role made by the user geerlingguy: **ansible-galaxy install geerlingguy.docker**
+
 ### Ansible Templates
 
-An Ansible Template is a file that contains all your configuartion parameters, but has dynamic values that get plugged in fom your Ansible playbooks or from your inventory, variables, etc. Templates use the Jinja2 templating language.
+An Ansible Template is a file that contains all your configuration parameters, but has dynamic values that get plugged in fom your Ansible playbooks or from your inventory, variables, etc. Templates use the Jinja2 templating language.
 
 - An example of a template may look like:
 ```j2
@@ -120,4 +125,4 @@ An Ansible Template is a file that contains all your configuartion parameters, b
 </VirtualHost>
 ```
 
- 
+
