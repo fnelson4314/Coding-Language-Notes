@@ -6,7 +6,7 @@
 - Cmdlets are things like Write-Host that are native PowerShell commands
   - These follow a **Verb-noun** naming convention
   - To see a list of all the cmdlets, you can enter **Get-Command -CommandTyper Cmdlet** into the shell
-- If you would like to see the syntax/options of a certain cmdlet, you can do **get-Hel cmdlet -Full**
+- If you would like to see the syntax/options of a certain cmdlet, you can do **Get-Help cmdlet -Full**
 - **|** can be used to pipe the output of one things into the input of another
   - **"May the force be with you!" | Out-File forcewithwho.txt**
 - **`n** can be used to do a newline
