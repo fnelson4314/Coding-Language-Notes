@@ -43,6 +43,7 @@
   - **\<button>Sign up!\</button>**
 - [\<input>](https://www.w3schools.com/tags/tag_input.asp) tag allows input that can take on many forms and types
   - **\<input type="text" placeholder="Enter username">**
+- \<span> tag is an inline element instead of a block display element so that you can apply styling to certain bits of text instead of the whole element
 
 ### Classes/Ids
 
@@ -90,19 +91,49 @@ body {
 }
 ```
 
+- ids are mainly used for styling elements that will be used once and once only as opposed to classes which are used multiple times. Pound signs are used instead of periods like with classes
+```css
+#underline {
+  border-bottom: 4px solid white;
+}
+```
+ 
+
 ### Properties
 
 - color: Text color
   - red, blue, yellow, etc.
   - Can also do hexcolor codes such as #8B4513 which is a recipe for how much red, green, and blue is in the color
 - background: Background color
-  - red, blue, yellow, etc.  
+  - red, blue, yellow, etc.
+  - You can also use the **linear-gradient()** function in order to fade from one color to another
+  - **background: linear-gradient(red, blue);**
+- background-image: Applies a background image to your page
+  - **background-image: url("images/universe.jpg")**
+- background-size: Specifies the size of the background image
+  - cover: Resize the background image to cover the entire container, even if it has to stretch the image or cut a little bit off one of the edges
+  - contain: Resize the background image to make sure the image is fully visible
+  - auto: Displayed in its original size
+  - Can also do length and percentages
 - font-size: Determines the size of your font
   - 0px - 100px and beyond
 - font-weight: Dictates the thickness of the font
   - lighter, normal, bold
+- font-family: Allows you to change the font style of your text. This is normally done with multiple fonts called a font stack as backups in case your client doesn't have the first font installed
+  - **font-family: Verdana, Geneva, Tahoma, sans-serif;**
+  - There are two categories of fonts, serif and sans-serif. Serif has decorative strokes on the end of the letters and sans-serif does not
+  - You can also do **font-family: inherit** which can be useful since buttons don't automatically inherit from their parents
+- If you aren't getting fonts from google fonts but from somewhere else on the web, you can drag the font file into your project and use **@font-face**
+```css
+@font-face {
+  src: url("Corlene.ttf");
+  font-family: Corleone;
+}
+```
 - text-align: positions your elements
   - left, center, or right
+- text-shadow: Allows you to give a shadowy effect to your text
+  - **text-shadow: horizontal-offset vertical-offset blur(optional) shadow-color**
 - margins: Add space to the outside of your elements
   - This can be done using pixels, percentage, and auto (which auomatically centers your element when using display: block or eats up the space of the side you choose like margin-left)
   - You can use margin-top, margin-left, margin-bottom, margin-right, or just margin
@@ -114,11 +145,12 @@ body {
 - border: Allows you to specify certain properties of your element borders
   - **border: border-width border-style border-color**
   - **border: 6px solid red**
+  - You can also do **border: none** to fully get rid of the border
 - border-radius: Allows you to adjust the sharpness of your corners
-  - **border-radius: 5px** 
+  - **border-radius: 5px**
+  - You can set it to 100% in order to get a circle
 - width/height: Sets width or height
   - Done using pixels, percentages (so the size applies no matter the device or screen size), and auto
-
 - display: Specifies the display behavior (the type of rendering box) of an element.
   - **inline** causes the elements to stack up beside each other in a horizontal line
   - **block** causes elements to stack on top of one another and each image blocks off space to the side of it
@@ -129,6 +161,7 @@ body {
 - A flexbox consists of:
   - A flex container which is the parent (container) \<div> element
   - Flex items which are the items inside the container \<div>
+- A flexbox only affects the direct children that are contained inside of it 
 - Properties:
   - flex-direction: Specifies the display direction of flex items in a container
     - Can be row (default value), column, row-reverse (displays right to left), or column-reverse (displays bottom to top)
@@ -136,10 +169,25 @@ body {
     - Can be nowrap, wrap, wrap-reverse
   - flex-flow: shorthand property for flex-direction and flex-wrap
     - **flex-flow: flex-direction flex-wrap**
-  - justify-content: Used to align the flex items when the do not use all available space on the main-axis (horizontally)
-    - Can be center, flex-start (left), flex-end (right), space-around (space around items), space-between, space-evenly
-  - align-items: used to align flex items when they do not use all available space on the cross-axis (vertically)
+  - justify-content: Used to align the flex items when the do not use all available space on the main-axis (horizontally). This flips when you change the flex-direction
+    - Can be center, flex-start (left), flex-end (right), space-around (space on all sides of items), space-between (no space to the outsides), space-evenly
+  - align-items: Used to align flex items when they do not use all available space on the cross-axis (vertically)
     - Can be center, flex-start (top), flex-end (bottom), stretch (stretches items so they fill to the bottom), baseline, normal
   - align-content: Like align-items, but instead of aligning flex items, it aligns the flex lines
     - Can be center, stretch (default), flex-start, flex-end, space-around, space-between, space-evenly
 
+### Pseudo-classes
+
+A pseudo-class is used to define a special state of an element.
+
+For example, it can be used to:
+- Style an element when a user moves the mouse over it
+- Style visited and unvisited links differently
+- Style an element when it gets focus
+- Style valid/invalid/required/optional form elements
+
+- :hover- Allows you to change certain properties when an element is hovered over
+```css
+div:hover {
+  background: blue;
+}
