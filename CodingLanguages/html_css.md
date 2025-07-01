@@ -51,9 +51,8 @@ Once you get into styling, it is very important that you have some way to distin
 
 - The "class" keyword can be used to assign a block of code to a certain class
   - **\<div class="main">
-- 
- 
-
+- ids are mainly used for styling elements that will be used once and once only as opposed to classes which are used multiple times.
+  - **\<div id="underline">
 
 
  ### Formatting
@@ -91,7 +90,7 @@ body {
 }
 ```
 
-- ids are mainly used for styling elements that will be used once and once only as opposed to classes which are used multiple times. Pound signs are used instead of periods like with classes
+ Pound signs are used instead of periods like with classes
 ```css
 #underline {
   border-bottom: 4px solid white;
