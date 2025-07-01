@@ -1,6 +1,6 @@
 # HTML
 
-### Basics to start
+## Basics to start
 
 - \<!DOCTYPE html> is needed at the top of all code
 - Then \<html lang="en-US"> is next
@@ -14,7 +14,7 @@
   - Can contain the same things
 - Comments are \<!-- Write your comment here -->
 
-### Tags
+## Tags
 
 - [\<p>](https://www.w3schools.com/tags/tag_p.asp) tag is for paragraphs
   - **\<p style="color:red;"> This is a red paragraph. \</p>**
@@ -45,7 +45,7 @@
   - **\<input type="text" placeholder="Enter username">**
 - \<span> tag is an inline element instead of a block display element so that you can apply styling to certain bits of text instead of the whole element
 
-### Classes/Ids
+## Classes/Ids
 
 Once you get into styling, it is very important that you have some way to distinguish your different blocks of code.
 
@@ -55,7 +55,7 @@ Once you get into styling, it is very important that you have some way to distin
   - **\<div id="underline">
 
 
- ### Formatting
+ ## Formatting
 
 - Put before and after the text you want to be formatted
 - \<b> - bold text
@@ -70,11 +70,17 @@ Once you get into styling, it is very important that you have some way to distin
 - \<sup> - Superscript text
 
 
+
+
+
+
+
+
 # CSS
 
 Start your CSS connection by adding **\<link rel="stylesheet" href="nameOfFile.css">** to the head tag of your html file
 
-### Selectors
+## Selectors
 
 - With basic tags like body, paragraphs(\<p>), headers, etc., you only need to put the tag name
 ```css
@@ -98,7 +104,7 @@ body {
 ```
  
 
-### Properties
+## Properties
 
 - color: Text color
   - red, blue, yellow, etc.
@@ -155,7 +161,7 @@ body {
   - **block** causes elements to stack on top of one another and each image blocks off space to the side of it
   - **flex** allows you to arrange the items as a flexbox
  
-### Flexbox
+## Flexbox
 
 - A flexbox consists of:
   - A flex container which is the parent (container) \<div> element
@@ -175,7 +181,7 @@ body {
   - align-content: Like align-items, but instead of aligning flex items, it aligns the flex lines
     - Can be center, stretch (default), flex-start, flex-end, space-around, space-between, space-evenly
 
-### Pseudo-classes
+## Pseudo-classes
 
 A pseudo-class is used to define a special state of an element.
 
@@ -184,6 +190,8 @@ For example, it can be used to:
 - Style visited and unvisited links differently
 - Style an element when it gets focus
 - Style valid/invalid/required/optional form elements
+
+
 
 - :hover- Allows you to change certain properties when an element is hovered over
 ```css
