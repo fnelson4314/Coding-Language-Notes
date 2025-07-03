@@ -27,6 +27,24 @@
 - null: Used to clear the value of a variable
 - Symbol: Used to create unique identifiers and objects
   - **const uniqueKey = Symbol();**
-- object: Hold key value pairs and can hold many different data types. A dictionary
+- object: Can hold many different data types
   - **let person = { name: "John", hours: 3 }**
+  - Array: **let colors = ['red', 'blue']
+    - Can use **.length** to get the length of an array
+
+
+## Functions
+
+Sample function and calling that function:
+```javascript
+function sayHi(name) {
+  console.log('Hi!' + name);
+}
+
+sayHi('Steven');
+```
+
+
+
+
 
