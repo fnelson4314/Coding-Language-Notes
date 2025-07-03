@@ -16,4 +16,17 @@
 ## Data types
 
 - Strings: You can declare a string in three different ways
-  - **let favoriteFruit = 
+  - **let favoriteFruit = 'strawberry';**
+  - **let favoriteIceCream = "chocolate";**
+  - **let favoriteProgrammingLaguage = `JavaScript`;**
+- Number: Encompasses integers and decimal values
+- BigInt: Allows you to work with integers larger than 2^53 - 1. Used by appending an n to the end of the integer
+  - **let veryLargeNumber = 39485734895739n;**
+- boolean: Stores true or false
+- undefined: When you assign a variable without initializing
+- null: Used to clear the value of a variable
+- Symbol: Used to create unique identifiers and objects
+  - **const uniqueKey = Symbol();**
+- object: Hold key value pairs and can hold many different data types. A dictionary
+  - **let person = { name: "John", hours: 3 }**
+
