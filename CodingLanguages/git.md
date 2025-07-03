@@ -31,6 +31,7 @@
 
 - branch - allows you to see your current branches
   -  Ex. git branch
+  -  Can rename a branch with **git branch -m newBranchName**
 - checkout - allows you to create a new branch
   - Ex. **git checkout -b branchName** (the -b is for creating a new branch)
   - **git checkout branchName** for switching to different branch
