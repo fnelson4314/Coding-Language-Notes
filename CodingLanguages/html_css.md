@@ -160,7 +160,8 @@ body {
   - **inline** causes the elements to stack up beside each other in a horizontal line
   - **block** causes elements to stack on top of one another and each image blocks off space to the side of it
   - **flex** allows you to arrange the items as a flexbox
- 
+- z-index: Specifies the stack order of an element. The greater stack order is shown in front
+
 ## Flexbox
 
 - A flexbox consists of:
