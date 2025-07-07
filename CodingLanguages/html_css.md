@@ -214,11 +214,22 @@ selector:pseudo-class {
   - You also need to include the **name** attribute for the input in order to let the backend know where it can grab the input
  
 ```html
-<div>
-  <label for="username">What's your name?</label>
-  <input type="text"id="username">
-  <button class="greet-btn">Greet Me</button>
-</div>
+<form action="https://httpbin.org/post" method="post">
+  <div>
+    <label for="first_name">First Name:</label>
+    <input type="text" name="first_name" id="first_name">
+  </div>
 
-<h1 class="greeting"></h1>
+  <div>
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name" id="last_name">
+  </div>
+
+  <div>
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age">
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
 ```
