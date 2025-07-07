@@ -139,6 +139,8 @@ body {
   - left, center, or right
 - text-shadow: Allows you to give a shadowy effect to your text
   - **text-shadow: horizontal-offset vertical-offset blur(optional) shadow-color**
+- box-shadow: Allows you to give a shadowy effect to your element
+  - **box-shadow: horizontal-offset vertical-offset blur(optional) shadow-color**
 - margins: Add space to the outside of your elements
   - This can be done using pixels, percentage, and auto (which auomatically centers your element when using display: block or eats up the space of the side you choose like margin-left)
   - You can use margin-top, margin-left, margin-bottom, margin-right, or just margin
