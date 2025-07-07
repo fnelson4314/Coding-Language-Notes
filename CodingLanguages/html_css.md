@@ -212,3 +212,13 @@ selector:pseudo-class {
   - Labels accept a **for** attribute, which associates it with a particular input.
   - The input we want to associate with a label needs an **id** attribute with the same value as the lavel's **for** attribute
   - You also need to include the **name** attribute for the input in order to let the backend know where it can grab the input
+ 
+```html
+<div>
+  <label for="username">What's your name?</label>
+  <input type="text"id="username">
+  <button class="greet-btn">Greet Me</button>
+</div>
+
+<h1 class="greeting"></h1>
+```
