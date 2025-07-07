@@ -44,7 +44,24 @@ function sayHi(name) {
 sayHi('Steven');
 ```
 
+A constructor function can be used to create an object. It is called with the **new** keyword:
+```javascript
+function Dog(name, breed, age, weightInPounds) {
+  this.name = name;
+  this.breed = breed;
+  this.age = age;
+  this.weightInPounts = weightInPounds;
+  this.eat = function() {
+    console.log(this.name + ': Chomp!');
+  }
 
+  this.bark = function() {
+    console.log(this.name + ': Woof!');
+  }
+}
+
+const anotherDog = new Dog('Marley', 'Lab', 3, 60);
+```
 
 
 
