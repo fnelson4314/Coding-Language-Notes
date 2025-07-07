@@ -122,6 +122,8 @@ Attributes can also be modfied:
   - .toggle(): Used to add the class if not there or remove if it is. Typically used for toggling styles on actions like **div.classList.toggle("mystyle");**
 - .innerHTML can be used to render HTML inside an element
   - **div.innerHTML = "\<span>Hello World!\</span>";**
+- .innerText can be used just for the text that  the user actually sees on the page.
+- .textContent for raw, unfiltered text
 
 ## Events
 
