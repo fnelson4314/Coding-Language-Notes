@@ -197,4 +197,15 @@ selector:pseudo-class {
 - :active- For a selected link
 - :focus- For when you enter into a text box
 
+## Forms
 
+- The form element takes in two attributes
+  - The **action** attribute takes a URL value that tells the form where it should send its data to be processed
+  - The **method** attribute tells the browser which HTTP request method it should use to submit the form. This can be GET, POST, PUT, and DELETE
+    - GET is used when we want to retrieve something from a server
+    - POST is used when we want to change something on the server'
+  - **<form action="example.com/path" method="post">**
+- This is usually used in combination with inputs and labels in order to get the information from the user for the form
+  - Labels accept a **for** attribute, which associates it with a particular input.
+  - The input we want to associate with a label needs an **id** attribute with the same value as the lavel's **for** attribute
+  - You also need to include the **name** attribute for the input in order to let the backend know where it can grab the input
