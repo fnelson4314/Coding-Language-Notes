@@ -103,3 +103,45 @@ When adding a script to a file, you can do **\<script src="two.js" type="module"
 The DOM is the Document Object Model and is like a tree of "nodes" full of all the components of an html file.
 
 There are many DOM methods that can be used: 
+
+- document.querySelector(selector): Returns a refereence to the first match of **selector**
+  - **const container = document.querySelector(".display");**
+- document.querySelectorAll(selectors): returns a "NodeList" containing references to all of the matches of the selectors
+  - **const container = document.querySelectorAll("#container");**
+- document.createElement(tagName, [options]): Creates a new element of tag type tagName. This just creates it in memory, not automatically adding it to the DOM
+  - **const div = document.createElement("div");**
+- parentNode.appendChild(childNode): Appends childNode as the last child of parentNode
+- parentNode.insertBefore(newNode, referenceNode): Inserts newNode into parentNode before referenceNode
+- parentNode.removeChild(child): Removes child from parentNode on the DOM and returns a reference to child
+
+Attributes can also be modfied:
+
+- element.classList can be used to access the classes of an element and it has a few methods
+  - .add(): Used to add a class to an element like **div.classList.add("new");**
+  - .remove(): Used to remove a class from an element like **div.classList.remove("new");**
+  - .toggle(): Used to add the class if not there or remove if it is. Typically used for toggling styles on actions like **div.classList.toggle("mystyle");**
+- .innerHTML can be used to render HTML inside an element
+  - **div.innerHTML = "\<span>Hello World!\</span>";**
+
+## Events
+
+Events are actions that occur on your webpage, such as mouse-clicks or key-presses. There are three ways to listen an work with these events:
+
+- You can specify function attributes directly on your HTML elements
+  - **\<button onclick="alert('Hello World')>Click me\</button>**
+- You can specify this in your javascript file
+  - **const btn = document.querySelector("#btn");**
+  - **btn.onclick = () => alert("Hello World");**
+- Using event listeners
+  - **btn.addEventListener("click", () => { alert("Hello World"); });**
+  - Some useful events are click, dblclick, keydown, keyup
+  - For multiple mappings to elements:
+```javascript
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    alert(button.id);
+  });
+});
+```
