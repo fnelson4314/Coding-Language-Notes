@@ -7,8 +7,6 @@
 
 ### Important Terms
 
-- Playbooks consist of one or more plays, that contain tasks composed of modules
-  - Plays are the sets of actions/tasks that you want to execute on a set of hosts
 - **Playbook**: A list of plays that define the order in which Ansible will perform operations to achieve an overall goal.
 - **Play**: An ordered list of tasks that maps to managed nodes in an inventory.
 - **Task**: A list of one or more modules that defines the operations that Ansible performs.
