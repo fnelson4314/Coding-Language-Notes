@@ -108,6 +108,7 @@ There are many DOM methods that can be used:
   - **const container = document.querySelector(".display");**
 - document.querySelectorAll(selectors): returns a "NodeList" containing references to all of the matches of the selectors
   - **const container = document.querySelectorAll("#container");**
+- document.getElementById() can be used to get an element with a specific id
 - document.createElement(tagName, [options]): Creates a new element of tag type tagName. This just creates it in memory, not automatically adding it to the DOM
   - **const div = document.createElement("div");**
 - parentNode.appendChild(childNode): Appends childNode as the last child of parentNode
