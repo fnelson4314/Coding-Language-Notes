@@ -104,6 +104,7 @@ The DOM is the Document Object Model and is like a tree of "nodes" full of all t
 
 There are many DOM methods that can be used: 
 
+- For any of the querying methods, you can add .value at the end to get the value that was typed into the element if it were an input element. This is usually paired with the .onsubmit event handler
 - document.querySelector(selector): Returns a refereence to the first match of **selector**
   - **const container = document.querySelector(".display");**
 - document.querySelectorAll(selectors): returns a "NodeList" containing references to all of the matches of the selectors
@@ -151,3 +152,7 @@ buttons.forEach((button) => {
   });
 });
 ```
+
+- Using event.preventDefault() stops all default behavior of that specific event like preventing a form from submitting when "submit" is clicked or following a link
+- You can use the **fetch** method to send an HTTP request to the provided url
+  - **fetch("{% url 'agent_health:agent_search' %}?searchInput=" + encodeURIComponent(searchValue))**
