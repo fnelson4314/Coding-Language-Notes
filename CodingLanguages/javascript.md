@@ -116,6 +116,9 @@ There are many DOM methods that can be used:
 
 Attributes can also be modfied:
 
+- element.setAttribute() can be used to change the attributes of a selected element
+  - **div.setAttribute("style", "color: blue; background: white;")**
+  - Or you can do it just for one attribute with **div.style.color = "blue";**
 - element.classList can be used to access the classes of an element and it has a few methods
   - .add(): Used to add a class to an element like **div.classList.add("new");**
   - .remove(): Used to remove a class from an element like **div.classList.remove("new");**
