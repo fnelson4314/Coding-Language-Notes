@@ -26,11 +26,13 @@
   - ![redTable](images/redTable.png) The primary keys are in red
   - The column in green is called the foreign key which links us to the primary key of another table
 - Syntax: **CREATE TABLE tableName(tableData);**
-- Ex. **CREATE TABLE student(**
-  - **student_id INT PRIMARY KEY,**
-  - **name VARCHAR(20),**
-  - **major VARCHAR(20)**
-- **);**
+```sql
+CREATE TABLE student(
+  student_id INT PRIMARY KEY,
+  name VARCHAR(20),
+  major VARCHAR(20)
+);
+```
 - Instead of putting PRIMARY KEY right after the field, you can put it all the way down at the bottom like **PRIMARY KEY(student_id)**. Can also do two fields like **PRIMARY KEY(student_id, major)** for a composite key
 - To delete a table, simply do **DROP TABLE tableName;**
 - **ALTER** keyword allows you to add, delete, or modify columns in a table
