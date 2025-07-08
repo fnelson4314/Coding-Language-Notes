@@ -43,9 +43,11 @@ CREATE TABLE student(
 ### Inserting Data
 
 - To insert data into an existing table, do **INSERT INTO tableName(columnNames of what you want required(you don’t have to put these column names if you want all of them))VALUES(values);**
-- Ex. **INSERT INTO student(student_id, name) VALUES**
-- **(1, ‘Jack’, ‘Biology’),**
-- **(2, ‘Kate’, ‘Sociology’);**
+```sql
+INSERT INTO student(student_id, name) VALUES
+(1, ‘Jack’, ‘Biology’),
+(2, ‘Kate’, ‘Sociology’);
+```
 
 ### Constraints
 
@@ -63,12 +65,16 @@ CREATE TABLE student(
 
 - UPDATE and DELETE can be used to modify rows
 - Update using **UPDATE tableName**
-  - Ex. **UPDATE student**
-  - **SET major = ‘Bio’, name = ‘John’**
-  - **WHERE major = ‘Biology’**
+```sql
+UPDATE student
+SET major = 'Bio', name = 'John'
+WHERE major = 'Biology'
+```
 - Delete using **DELETE FROM tableName;** which would delete all the rows in tableName
-  - Ex. **DELETE FROM student**
-  - **WHERE student_id = 5;**
+```sql
+DELETE FROM student
+WHERE student_id = 5;
+```
 
 ### Keyword Library
 
