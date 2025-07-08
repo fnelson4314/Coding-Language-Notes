@@ -10,5 +10,5 @@
   - Ex. \[This is a link](inserlink.com)
 - Unordered list: Start with \-
 - Ordered list: start with 1.
-- Inline code block: Surround code with `
+- Inline code block: Surround code with ```\<language name>
 - Images: \![Image description](.jpg file)
