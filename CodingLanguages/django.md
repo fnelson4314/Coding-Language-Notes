@@ -8,7 +8,7 @@
 - **python manage.py migrate** initializes our table and database
 
 ## Miscellaneous Notes
-- **\<model>.objects.count()** - Every model/database has an "objects" attribute that can be called on
+- **\<model>.objects.count()** - Every model/database has an "objects" attribute that can be called on. This specific method gets the total amount of objects in the specified database.
 
 
 ## Getting Started
