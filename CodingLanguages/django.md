@@ -84,19 +84,21 @@ return render(request, "website/welcome.html", {"message": "This data was sent f
 ```
 - Variables inside the template can be called using double curly braces ({{     }})
   - **{{message}}**
-- Loops are possible as well in the templates using {%   %}
+- Loops and conditionals are possible as well in the templates using {%   %}
 ```html
 <ul>
   {% for meeting in meetings %}
-    <li>
-      <a href="{% url 'detail' meeting.id %}">
-        {{meeting.title}}
-      </a>
-    </li>
+    {% if meeting %}
+      <li>
+        <a href="{% url 'detail' meeting.id %}">
+          {{meeting.title}}
+        </a>
+      </li>
+    {% endif %}
   {% endfor %}
 </ul>
 ```
-- Doing this would require us to change our url path to **path('meetings/\<int:id>', detail, name="detail")** in order for the url template tag to find 'detail'
+- Doing this would require us to change our url path to **path('meetings/', detail, name="detail")** in order for the url template tag to find 'detail'
 
 ## Retrieving data from a database
 
