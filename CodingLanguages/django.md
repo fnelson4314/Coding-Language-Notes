@@ -126,7 +126,7 @@ def detail(request, id):
 
 - You should add a "static" folder with another folder with the app name inside and this is where your CSS files will go
 - In order to connect your style sheet to your templates, add **{% load static %}** at the top of your template file and add **\<link rel="stylesheet" href="{% static 'website/style.css' %}">**
-- To add in an image, **\<img src="{% static 'wevsite/calendar.png' %}" width="100px">**
+- To add in an image, **\<img src="{% static 'website/calendar.png' %}" width="100px">**
 
 ## Template Inheritance
 
