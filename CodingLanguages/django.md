@@ -17,7 +17,7 @@
 - To run the django development server, run **python manage.py runserver**
   - Your webpage will be shown on the server that is generated after running
 - To get the app started and actually get a view for it, run **python manage.py startapp appName**
-  - This will create a new folder with your app name and inside it will have **views.py** which will be where the app visual content will be
+  - This will create a new folder with your app name and inside it will have **views.py** which will be the backend logic and where templates can be rendered
   - After you add a new app, go to settings.py and add your new app name to the list of "INSTALLED_APPS"
 - To add a new URL/new page, go to urls.py, and add to url patterns **path(urlAddition, function)**
   - Ex. **path('welcome.html', welcome)** and to see this, just add the urlAddition to the end of the url
