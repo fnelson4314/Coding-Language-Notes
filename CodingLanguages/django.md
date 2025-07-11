@@ -61,7 +61,7 @@ class Meeting(models.Model)
 - In admin.py, import the model you want to give admin privilages to **from .models import Meeting**
 - Then you can add **admin.site.register(\<model>)**
 - In order to login to the admin, you need to create a user account in terminal with **python manage.py createsuperuser**
-- With this, you will be able to access and modify your table data
+- With this, you will be able to access and modify your table data by adding /admin to the main website url
 
 ## Model, View, and Template
 
