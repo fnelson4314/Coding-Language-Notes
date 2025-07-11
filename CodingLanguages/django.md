@@ -114,7 +114,7 @@ def detail(request, id):
   meeting = Meeting.objects.get(pk=id)
   return render(request, "meetings/detail.html", {"meeting", meeting})
 ```
-- This example id can be specified with a new url path in urls.py by doing **path('meetings/<int:id>, detail)**
+- This example id can be specified with a new url path in urls.py by doing **path('meetings/\<int:id>, detail)**
 
 ## URLs and Link Building
 
