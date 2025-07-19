@@ -3,16 +3,30 @@
 ## Getting Started
 
 1. Go to start.spring.io in order to get a boilerplate layout for a springboot application
-2. Choose maven, java, and 3.3.13
-3. Name your group as well as artifact, then make sure you select the java version that is installed on your device
+2. Choose maven, java, and the latest release version
+3. Name your group(Ex. com.project) as well as artifact, then make sure you select the java version that is installed on your device
 4. Choose Spring Web as a dependency as that's used for builing web apps
 5. Choose Spring Data JPA for working with our data
 6. Choose PostgreSQL Driver which allows you to work with a PostgreSQL database
 7. Once your new folder is in your work environment, connect your prepared PostgreSQL database
 8. To run an application once finished and in your project directory, run **./mvnw spring-boot:run**
 
+## What is Apache Maven
+- Apache Maven can be summed up to be a tool that helps programmers manage their projects and all the things they need to build their programs.
+- It is used via the maven wrapper or **mvnw** which has phases
+  - **clean** - Used to remove temporary directories and files
+  - **default** - Where the most useful goals live
+    - **compile** - Compiles your code into bytecode
+    - **test** - Runs unit tests
+    - **package** - Creates a jar or war file
+    - **verify** - Runs checks and integration tests
+  - **site** - Where documentation is generated
 
-## Tags
+## Annotations
+
+- **@Component** - Tells Spring to manage the class as a bean and make it available for dependency injection as well as manage its lifecycle
+- **@Service** - Same functionality as @Component and it would run the same if they were swapped, but it is just a specialization meant for the service layer
+
 
 - \@Entity: Allows a class to be mapped to a table in a database
 - Written below this is normally the \@Table tag which allows you to specify your data table specific name
@@ -37,7 +51,6 @@ public class Player {
 public interface PlayerRepository extends JpaRepository<Player, Integer> {}
 ```
 
-- \@Component: Telling spring that this class should be managed by a spring container meaning spring will create an instance of this class and manage its lifecycle
 - \@Autowired: Injects a repository being into the service which will allow it to interact with the database
 ```java
 @Component
