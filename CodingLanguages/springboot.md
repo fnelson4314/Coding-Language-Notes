@@ -22,6 +22,10 @@
     - **verify** - Runs checks and integration tests
   - **site** - Where documentation is generated
 
+## Configuration
+- Any additions you'd like to add to your application.properties files can be found at [https://docs.spring.io/spring-boot/appendix/application-properties/index.html](https://docs.spring.io/spring-boot/appendix/application-properties/index.html)
+
+
 ## Annotations
 
 - **@Component** - Tells Spring to manage the class as a bean and make it available for dependency injection as well as manage its lifecycle
