@@ -24,12 +24,13 @@
 
 ## Configuration
 - Any additions you'd like to add to your application.properties files can be found at [https://docs.spring.io/spring-boot/appendix/application-properties/index.html](https://docs.spring.io/spring-boot/appendix/application-properties/index.html)
+- This is where you can change things like the application name and the port that the application runs on
 
 
 ## Annotations
 
 - **@Component** - Tells Spring to manage the class as a bean and make it available for dependency injection as well as manage its lifecycle
-- **@Service** - Same functionality as @Component and it would run the same if they were swapped, but it is just a specialization meant for the service layer
+- **@Service** - Same functionality as @Component, and it would run the same if they were swapped, but it is just a specialization meant for the service layer
 
 
 - \@Entity: Allows a class to be mapped to a table in a database
