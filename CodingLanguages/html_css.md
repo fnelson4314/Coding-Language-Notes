@@ -44,7 +44,7 @@
 - [\<input>](https://www.w3schools.com/tags/tag_input.asp) tag allows input that can take on many forms and types
   - **\<input type="text" placeholder="Enter username">**
 - [\<span>](https://www.w3schools.com/tags/tag_span.asp) tag is an inline element instead of a block display element so that you can apply styling to certain bits of text instead of the whole element
-- [\<select>](https://www.w3schools.com/tags/tag_select.asp) tag allows you to create a dropdown list with some options. Paired with the \<option value="someValue"> tag to provide the options inside the select tag like a list element does
+- [\<select>](https://www.w3schools.com/tags/tag_select.asp) tag allows you to create a dropdown list with some options. Paired with the \<option value="someValue">(value attribute is only for sending info to server. Place text between open and close tags) tag to provide the options inside the select tag like a list element does
 
 ## Classes/Ids
 
