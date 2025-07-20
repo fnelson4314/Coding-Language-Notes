@@ -28,3 +28,9 @@ function Header() {
 
 export default Header
 ```
+
+- This can then be inserted in other files by first importing the component, then used like **\<Header>\</Header>** or shorthand **\<Header/>**
+- For jsx, when returning you can only return one element. So if you want multiple components, this can be easily fixed by adding in empty angle brackets (\<>\</>)
+- If you'd like to add some javascript in the return statement, this must be surrounded by curly brackets. If just inside the function and not the return statement, you don't need curly brackets
+- With jsx, "class" is a reserved keyword so use "className" instead
+- 
