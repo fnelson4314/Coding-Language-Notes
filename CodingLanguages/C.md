@@ -2,7 +2,7 @@
 
 ## Things that are the exact same as Java
 
-- Variable declarations
+- Variable declarations 
   - Are able to use char, short, int, long, float, and double
 - Can’t use byte and boolean
 - ![Arithmetic](images/arithmetic.png)
