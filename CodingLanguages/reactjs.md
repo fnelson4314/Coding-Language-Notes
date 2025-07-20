@@ -33,4 +33,38 @@ export default Header
 - For jsx, when returning you can only return one element. So if you want multiple components, this can be easily fixed by adding in empty angle brackets (\<>\</>)
 - If you'd like to add some javascript in the return statement, this must be surrounded by curly brackets. If just inside the function and not the return statement, you don't need curly brackets
 - With jsx, "class" is a reserved keyword so use "className" instead
-- 
+
+## Click events
+
+- When creating a button element, there's an "onClick" option available where a function can be assigned to run when a user clicks the button
+  - There's also an "onDoubleClick" option
+```js
+function Button() {
+  const handleClick = (name) => console.log(`${name} stop clicking me`);
+
+  return(<button onClick={() = handleClick("Bro")}Click me</button>
+}
+export default button
+```
+- If the callback function has a parameter, you must use an arrow function to call it
+- Every click event automatically comes with an "event" parameter that can be used
+  - This event object has many different properties that can be used. You can see these properties by logging the event to the console
+ 
+## React hooks
+
+- The most common react hook is the "useState" hook. This allows the creation of a stateful variable and a setter function to update its value in the Virtual DOM. [name, setName]
+  - To use it, do "import React, {useState} from 'react';"
+  - The stateful variable can only be changed using the given setter function as nothing would happen if you tried to assign a value directly to the stateful variable
+  - You can pass in a default value to useState for when the variable hasn't been set yet
+```js
+const [age, setAge] = useState(0);
+
+const incrementAge = () => {
+  setAge(age + 1);
+}
+```
+
+ 
+
+
+
