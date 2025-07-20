@@ -56,12 +56,31 @@ export default button
   - To use it, do "import React, {useState} from 'react';"
   - The stateful variable can only be changed using the given setter function as nothing would happen if you tried to assign a value directly to the stateful variable
   - You can pass in a default value to useState for when the variable hasn't been set yet
+  - If the variable ends up being an object or an array and you'd like to add or modify, you can do something like **setFoods(f => [...f, newFood]); The ...f holds everything that was already in the object/array and the newFood is the thing you'd like to add
 ```js
 const [age, setAge] = useState(0);
 
 const incrementAge = () => {
   setAge(age + 1);
 }
+```
+
+- Another common react hook is "useEffect". This tells React to DO SOME CODE WHEN this component re-renders, this component mounts, the state of a value changes:
+  - useEffect(() => {}) runs after every re-render
+  - useEffect(() => {}, []) runs only on mount
+  - useEffect(() => {}, [value]) runs on mount + when value changes
+  - Uses:
+    - Event listeners
+    - DOM manipulation
+    - Subscription (real-time updates)
+    - Fetching Data from an API
+    - Clean up when a component unmounts
+```js
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+  document.title = `Count: ${count}`;
+}, [count]); // This automatically updates the title upon rendering as well as whenever count changes since it's in the dependencies
 ```
 
 ## onChange
@@ -77,5 +96,69 @@ function handleNameChange(event) {
 return(<div>
           <input value={name} onChange={handleNameChange}/>
 );
+```
 
+## Page routing
 
+- The main page router paired with react is React Router Dom
+- This can be installed with **npm i react-router-dom**
+- To use it in your code do **import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";**
+  - BrowserRouter is the top level router for web apps that will wrap everything
+  - Routes will wrap all of your Route components
+  - Route defines a path and component to render
+    - Need to provide some attributes
+    - path for what you'd like the url path to be for your component
+    - element to specify your component to render
+  - useNavigate allows you to redirect to another page usually after some sort of action
+    - ```js
+      const navigate = useNavigate();
+      return navigate('/jobs');
+      ```
+    
+```js
+return (
+  <div className="app">
+    <BrowserRouter>
+      {!user ? (
+        <LoginScreen />
+      ) : (
+        <Routes>
+          <Route path="/profile" element={<ProfileScreen />} />
+          <Route path="/" element={<HomeScreen />} />
+        </Routes>
+      )}
+    </BrowserRouter>
+  </div>
+);
+```
+
+## Async functions and fetching data
+
+- In JavaScript, operations like fetching data from an API, reading a file, or waiting for a timeout don’t return results immediately — they return a Promise. async/await is a way to write asynchronous code that looks synchronous, making it easier to understand and debug.
+- Using async for a function makes sure that a function always returns a promise
+- Using await pauses execution inside an async function until the promise is resolved
+```js
+async function getData() {
+  try {
+    const response = await fetch('/data');  // Waits for fetch to finish
+    const data = await response.json();     // Waits for JSON to parse
+    console.log(data);
+  } catch (error) {
+    console.error('Something went wrong:', error);
+  }
+}
+```
+
+- To post data, you can do a POST request
+```js
+const addJob = async (newJob) => {
+  const res = await fetch("/api/jobs", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newJob),
+  });
+  return;
+};
+```
