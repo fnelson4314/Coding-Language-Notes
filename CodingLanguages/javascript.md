@@ -87,7 +87,7 @@ Exporting a variable from a file can be done in two ways
 
 - It can be done using a named export like **export const greeting = "Hello, Odinite!";**
   - Or it can be done separately by exporting multiple variables at once by putting it at the end like **export { greeting, farewell };**
-- You can also do a default import which can only be used on a single thing for a file by adding it at the end of a file like **export default "Hello, Odinite!";**
+- You can also do a default export which can only be used on a single thing for a file by adding it at the end of a file like **export default "Hello, Odinite!";**
   - You can mix named and default exports, but you can only have one default export per file. People tend to use this when they only have a single function/variable in their file
 
 Importing can easily be done by picking and choosing what variables/function from what file
