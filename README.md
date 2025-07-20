@@ -1,12 +1,17 @@
 ## Structured notes for the coding languages/tools that I've learned
 
 Included so far is:
+- C
 - SQL
-- YAML
+- YAML/Ansible
+- Bootstrap
 - Django
 - Git
-- HTML
+- HTML/CSS
+- Javascript
 - Markdown
 - Powershell
 - Python
-- C
+- ReactJS
+- Springboot
+
