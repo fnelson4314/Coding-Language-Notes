@@ -64,7 +64,18 @@ const incrementAge = () => {
 }
 ```
 
- 
+## onChange
 
+- The onChange event handler triggers a function every time the value of the input changes. Primarily used with form elements like \<input>, \<select>, \<textarea>, etc.
+```js
+const [name, setName] = useState("Guest");
+
+function handleNameChange(event) {
+  setName(event.target.value);
+}
+
+return(<div>
+          <input value={name} onChange={handleNameChange}/>
+);
 
 
