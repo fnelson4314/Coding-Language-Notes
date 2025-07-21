@@ -31,7 +31,7 @@
 - They can be created in a file titled "Dockerfile" exactly like that
 - You will always have a base image that you will build from and you can pull this in with the **FROM** keyword
 - Then wherever your dockerfile is, you're going to want to add the files in the directory to the base image with the **ADD** keyword
-```docker
+```
 FROM nginx:latest
 ADD . /user/share/nginx/html
 ``` 
