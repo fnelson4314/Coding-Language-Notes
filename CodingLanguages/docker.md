@@ -12,6 +12,7 @@
 - Has everything you need to run your apps
 - You can create your own images or you can find them publicly online at **hub.docker.com** where you can then do **docker pull [image]**
 - To see a list of all your current images, you can run **docker images**
+- You can remove an image using **docker image rm [imageId]**
 
 ## Containers
 
@@ -29,13 +30,14 @@
 
 - Dockerfiles are where you can create your own images
 - They can be created in a file titled "Dockerfile" exactly like that
-- You will always have a base image that you will build from and you can pull this in with the **FROM** keyword
-- Then wherever your dockerfile is, you're going to want to add the files in the directory to the base image with the **ADD** keyword
+- You will always have a base image that you will build from and you can pull this in with the **FROM** keyword. When choosing the tag, alpine is recommended because it makes your image sizes a lot smaller
+- Then wherever your Dockerfile is, you're going to want to add the files in the directory to the base image with the **ADD** keyword
 ```
-FROM nginx:latest
+FROM nginx:apline
 ADD . /user/share/nginx/html
 ``` 
-
+- After you have those two in your Dockerfile, change directory to where your file is and run **docker build --tag [imageName]:[imageTag] .**. The dot at the end is for the location to build
+- It might also be important to have a docker ignore file for ignoring things like downloaded node modules or your own docker file. All you have to do is create a file with the name **.dockerignore** and place in any file names just as they're written into the file with no other syntax
 
 
 
