@@ -6,6 +6,7 @@ Included so far is:
 - YAML/Ansible
 - Bootstrap
 - Django
+- Docker
 - Git
 - HTML/CSS
 - Javascript
