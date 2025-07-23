@@ -26,6 +26,24 @@
   - To remove all containers, run **docker rm -f $(docker ps -aq)**
 - To see the list of all containers (running and stopped), run **docker ps -a**
 
+## Docker Networks
+
+- A docker network is a virtual network that containers can connect to -- like a little private LAN
+- Types:
+  - Bridge - This is the default for containers. Good for simple setups on a single host
+  - host -	Shares the host’s network. No isolation — container uses the host’s IP directly.
+  - none -	No networking at all.
+  - overlay	- For multi-host setups with Docker Swarm.
+  - macvlan	- Gives containers their own IPs on the physical network. Advanced use only.
+- Commands:
+  - **docker network ls** - View all networks
+  - **docker network create networkName** - Creates a new bridge network. With this, container names work as hostnames
+  - Ex:
+    - ```bash
+      docker network create my-network
+      docker run -d --name backend --network my-network my-node-image # Run a backend
+      docker run -d --name frontend --network my-network my-react-image # Run a frontend
+
 ## Dockerfiles
 
 - Dockerfiles are where you can create your own images
@@ -62,6 +80,8 @@ services: # This is where you will list all of your services/containers that you
       - 27017:27017
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
+    networks: # Networks to connect this service to
+      - db 
     depends_on: # Tells Docker that the specified service needs to be up and running before this one starts
       - "someOtherService"
 
@@ -69,6 +89,9 @@ services: # This is where you will list all of your services/containers that you
     build: . # This will build our own image using everything in our current directory (The dot ".")
     ports:
       - 3000:3000
+
+networks: # Creating networks that you want your services to run on
+  db:
 ```
 
 
