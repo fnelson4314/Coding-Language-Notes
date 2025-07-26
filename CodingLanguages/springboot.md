@@ -10,6 +10,7 @@
 6. Choose PostgreSQL Driver which allows you to work with a PostgreSQL database
 7. Once your new folder is in your work environment, connect your prepared PostgreSQL database
 8. To run an application once finished and in your project directory, run **./mvnw spring-boot:run**
+9. If any ports are running, do **netstat -ano | findstr :<port-number>** then **taskkill /PID <PID> /F**
 
 ## What is Apache Maven
 - Apache Maven can be summed up to be a tool that helps programmers manage their projects and all the things they need to build their programs.
