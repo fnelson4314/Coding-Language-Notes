@@ -2,7 +2,7 @@
 
 ## Getting started
 
-- To get a basic react project and the needed files, run **rpm create vite@latest**
+- To get a basic react project and the needed files, run **npm create vite@latest**
 - Enter your project name
 - Select the React framework
 - Then select Javascript 
