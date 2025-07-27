@@ -8,9 +8,10 @@
 4. Choose Spring Web as a dependency as that's used for builing web apps
 5. Choose Spring Data JPA for working with our data
 6. Choose PostgreSQL Driver which allows you to work with a PostgreSQL database
-7. Once your new folder is in your work environment, connect your prepared PostgreSQL database
-8. To run an application once finished and in your project directory, run **./mvnw spring-boot:run**
-9. If any ports are running, do **netstat -ano | findstr :<port-number>** then **taskkill /PID <PID> /F**
+7. Choose Lombok which gives you lots of boilerplate options to add to your projects
+8. Once your new folder is in your work environment, connect your prepared PostgreSQL database
+9. To run an application once finished and in your project directory, run **./mvnw spring-boot:run**
+10. If any ports are running, do **netstat -ano | findstr :<port-number>** then **taskkill /PID <PID> /F**
 
 ## What is Apache Maven
 - Apache Maven can be summed up to be a tool that helps programmers manage their projects and all the things they need to build their programs.
@@ -27,17 +28,42 @@
 - Any additions you'd like to add to your application.properties files can be found at [https://docs.spring.io/spring-boot/appendix/application-properties/index.html](https://docs.spring.io/spring-boot/appendix/application-properties/index.html)
 - This is where you can change things like the application name and the port that the application runs on
 
+## Lombok
+
+- **@Data** - Generates all the basic things for a class like getters, setters, toString, equals and hashcode methods, and requiredArgsConstructor
+- **@NoArgsConstructor** - Basic constructor requiring no arguments
+- **@AllArgsConstructor** - Constructor requiring all fields specified in class
+- **@RequiredArgsConstructor** - Allows for constructor injection and only creates a constructor for final fields
+  - Lets say you had a class:
+  - ```java
+    @RequiredArgsConstructor
+    @AllArgsConstructor
+    public class UserService {
+
+      private final UserRepository userRepository;
+      private String serviceName;
+      private int retryCount;
+    }
+    ```
+  - There would be a constructor created like:
+  - ```java
+    public UserService(UserRepository userRepository) {
+      this.userRepository = userRepository;
+    }
+    ```
+- **@Getter**
+- **@Setter**
+- 
+
 
 ## Annotations
 
-- **@Component** - Tells Spring to manage the class as a bean and make it available for dependency injection as well as manage its lifecycle
-- **@Service** - Same functionality as @Component, and it would run the same if they were swapped, but it is just a specialization meant for the service layer
-
-
-- \@Entity: Allows a class to be mapped to a table in a database
-- Written below this is normally the \@Table tag which allows you to specify your data table specific name
-- Inside your table class with your class attributes, you will have your primary key which can be identified with the \@Id tag
-- Along with the \@Id tag goes the \@Column tag which tells springboot where to find this primary key in the PostgreSQL database
+- **@Component**: Tells Spring to manage the class as a bean and make it available for dependency injection as well as manage its lifecycle
+- **@Service**: Same functionality as @Component, and it would run the same if they were swapped, but it is just a specialization meant for the service layer
+- **@Entity**: Allows a class to be mapped/created to a table in a database
+- Written below this is normally the **@Table** tag which allows you to specify your data table specific name by doing **@Table(name = "users")**
+- Inside your table class with your class attributes, you will have your primary key which can be identified with the **@Id** tag
+- Along with the @Id tag goes the **@Column** tag which tells springboot where to find this primary key in the PostgreSQL database
 ```java
 @Entity
 @Table(name="nba_stats")
