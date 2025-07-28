@@ -98,6 +98,11 @@ WHERE student_id = 5;
 - **FROM** - Used to specify which table to select or delete data from
 - **GROUP BY** - Groups rows that have the same values into summary rows
   - Usually used with aggregate functions **(COUNT(), MAX(), MIN(), SUM(), AVG())**
+  - ```sql
+    SELECT COUNT(CustomerID), Country
+    FROM Customers
+    GROUP BY Country; -- This will return how many of each country there is
+    ```
 - **ORDER BY** - Used to sort the result-set in ascending or descending order
   - Add **ASC** at the end for it to be in ascending order
   - Add **DESC** at the end for descending order
