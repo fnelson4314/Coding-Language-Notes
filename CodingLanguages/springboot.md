@@ -204,7 +204,25 @@ public class PlayerController {
 - When using authentication in your project, you'd first like to create a class like SecurityConfig
 - Here, you should create a userDetailsService method to handle admin and normal user permissions
 - Spring has a default security filter that generates temporary passwords and you normally want to override this so a separate bean should be made
-- There is boilerplate code for the method to override this at [https://docs.spring.io/spring-security/reference/servlet/configuration/java.html](https://docs.spring.io/spring-security/reference/servlet/configuration/java.html)
+- There is boilerplate code for the method to override this at [https://docs.spring.io/spring-security/reference/servlet/configuration/java.html](https://docs.spring.io/spring-security/reference/servlet/configuration/java.html) where you can search for the current implementation of securedFilterChain
+- Normally want to switch out .securityMatcher("/secured/**") for **.csrf(csrf -> csrf.disable())**
+- Ex.
+- ```java
+  @Bean
+  SecurityFilterChain securityFlterChain(HttpSecurity http) throws Exception {
+    return http
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.POST, "/api/jobs").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.GET, "/api/jobs/all").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/application/apply/**")
+                                                        .hasRole("APPLICANT")
+                .anyRequest().authenticated()
+            )
+            .httpBasic(Customizer.withDefaults())
+            .build();
+  }
+  ```
 
 ## Database Management
 
