@@ -62,7 +62,6 @@
     ```
 - **@Getter**
 - **@Setter**
-- 
 
 
 ## Annotations
@@ -75,6 +74,8 @@
 - **@GeneratedValue(strategy = GenerationType.IDENTITY)**: Usually used alongside the @Id tag that uses SQL base identity which is to auto increment our id
 - **@Column(name, nullable, unique, length)**: Allows extra control over how the mapping is handled and allows you to specify attributes of a column to be mapped to your database table
 - **@Enumerated(EnumType.\<type>)**: This allows you to specify the enumeration type you'll be using
+- **@ManyToOne**: This allows many objects of the current class to belong to the one object that this annotation is referring to
+- **JoinColumn**: Used alongside @ManyToOne an this sepecifies the column in the database that joind the two tables (the foreign key)
 ```java
 @Entity
 @Table(name="nba_stats")
@@ -97,6 +98,10 @@ public class Player {
   public enum Role {
     PLAYER, MANAGER
   }
+
+  @ManyToOne
+  @JoinColumn(name = "team_id")
+  private Team team; //This is saying that many players can belong to one team
 }
 ```
 
@@ -125,10 +130,12 @@ public class PlayerService {
 - **@GetMapping**: A specialized, shortcut annotation used to map HTTP GET requests to specific handler methods within a Spring controller
 - **@RequestParam**: Used to extract data from the query parameters of an HTTP request URL and bind it to a method parameter in a Spring controller.
 - **@PostMapping**: Used to map HTTP POST requests to specific handler methods within a Spring MVC controller.
-- **@RequestBody**: Used to bind the body of an HTTP request to a method parameter in a controller handler method. This annotation facilitates the automatic deserialization of the incoming request body, typically in formats like JSON or XML, into a specified Java object
+- **@RequestBody**: When a POST request is made and information is sent by an HTTP request, @RequestBody takes the body of the HTTP request and creates the specified Java object off that information
 - **@PutMapping**: Used to map HTTP PUT requests to specific handler methods within a REST controller.
 - **@DeleteMapping**: Used to map HTTP DELETE requests to specific handler methods within a controller
 - **@PathVariable**: Used to extract values from the URI (Uniform Resource Identifier) path and bind them to method parameters in a controller.
+- **ResponseEntity\<type>(body, headers, status)**: Gives you complete control over your HTTP responses in Spring Boot REST APIs
+  - Can use the static method **.ok(body)** to send an HTTP response with status 200 and the specified body message  
 
 ```java
 @RestController
@@ -189,4 +196,21 @@ public class PlayerController {
 }
 ```
 
+- **@Configuration**: Marks the class as a source of bean definitions
+- **@Bean**: Registers the method's return value as a Spring bean
+
+## Spring Security
+
+- When using authentication in your project, you'd first like to create a class like SecurityConfig
+- Here, you should create a userDetailsService method to handle admin and normal user permissions
+- Spring has a default security filter that generates temporary passwords and you normally want to override this so a separate bean should be made
+- There is boilerplate code for the method to override this at [https://docs.spring.io/spring-security/reference/servlet/configuration/java.html](https://docs.spring.io/spring-security/reference/servlet/configuration/java.html)
+
+## Database Management
+
+- There are a few lines in application.properties that need to be added:
+  - **spring.datasource.url=jdbc:postgresql://localhost:5147**
+  - **spring.datasource.username=<yourPostgreSQLUsername>**
+  - **spring.datasource.password=<yourPostgreSQLPassword>**
+  - **spring.jpa.hibernate.ddl-auto=update**: This will tell Hibernate to check for entities, compare them with existing tables, and create or update tables/columns accordingly
 
