@@ -217,17 +217,101 @@ public class PlayerController {
                 .requestMatchers(HttpMethod.GET, "/api/jobs/all").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/application/apply/**")
                                                         .hasRole("APPLICANT")
-                .anyRequest().authenticated()
+                .anyRequest().authenticated() // Basically a catch-all rule to require the user to be logged in for any other endpoint not explicitly specified above
             )
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
             .httpBasic(Customizer.withDefaults())
             .build();
   }
   ```
 
+## JWT
+
+- JWT or JSON Web Token is a way to verify a user for an entire web session without having to get credentials with each API call. When a user provides their username and password, a token is created that will be passed to each API call as their credentials
+- Benefits:
+  - You don't need to send your password every time which is more efficient and is safer in terms of security
+  - You can build token expiration so if you'd like to auto logout after a certain amount of time, you can
+  - You can store extra info in the token like roles and permissions
+- General JWT Integration steps
+  1. When the user logs in, the API verifies their credentials and returns the JWT token we just generated
+  2. Generate JWT token which will carry the user's identity and roles
+  3. For each API request, we extract and validate the token from the header
+  4. Add JWT filter in the SecurityConfig before the basic Spring Auth
+  5. Finally, use token to call the protected APIs and the token will go in the authorization header
+- Example JwtUtil class:
+```java
+public static final String SECRET = "5367566859703373367639792F423F452848284D6251655468576D5A71347437";
+private static final long EXPIRATION_TIME = 86400000; // 1 day (in milliseconds)
+
+private Key getSigningKey() {
+  return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
+}
+
+public String generateToken(String email) {
+  return Jwts.builder()
+    .setSubject(email).setIssuedAt(new Date())
+    .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+    .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+    .compact();
+}
+
+public String extractUsername(String token) {
+    return extractClaim(token, Claims::getSubject);
+}
+
+public Date extractExpiration(String token) {
+    return extractClaim(token, Claims::getExpiration);
+}
+
+public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+    final Claims claims = extractAllClaims(token);
+    return claimsResolver.apply(claims);
+}
+
+private Claims extractAllClaims(String token) {
+    return Jwts.parserBuilder()
+            .setSigningKey(getSignKey())
+            .build()
+            .parseClaimsJws(token)
+            .getBody();
+}
+
+private Boolean isTokenExpired(String token) {
+    return extractExpiration(token).before(new Date());
+}
+
+public Boolean validateToken(String token, UserDetails userDetails) {
+    final String username = extractUsername(token);
+    return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+}
+```
+
+## OAuth
+
+- Stands for Open Authorization. OAuth allows users to log in using trusted providers (like Google) without sharing their passwords with your app
+- OAuth Integration steps:
+  1. Register app on provider (like Google) platform which will give us a clientID and client secret
+  2. When user clicks the google login, we will redirect them to the google login screen. After successful login, Google will send back an Auth code
+  3. We will then send this Auth code to then ask for a token
+  4. This token can then be used with the API calls and can go in the authorization header
+  5. Our backend uses this token to verify with Google that the token is valid and not expired
+- First, register your app on the provider site, for Google: [https://console.cloud.google.com/apis/credentials?inv=1&invt=Ab3_SA&project=sincere-apex-467319-n8](https://console.cloud.google.com/apis/credentials?inv=1&invt=Ab3_SA&project=sincere-apex-467319-n8)
+- You also need to add a few things to your application.properties file
+  - spring.security.oath2.client.registration.google.client-id=\<client-id>
+  - spring.security.oath2.client.registration.google.client-secret=\<client-secret>
+  - spring.security.oath2.client.registration.google.scope=openid,profile,email
+- Add this to your pom.xml dependencies
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-oauth2-client</artifactId>
+</dependency>
+```
+
 ## Database Management
 
 - There are a few lines in application.properties that need to be added:
-  - **spring.datasource.url=jdbc:postgresql://localhost:5147**
+  - **spring.datasource.url=jdbc:postgresql://localhost:5173**
   - **spring.datasource.username=<yourPostgreSQLUsername>**
   - **spring.datasource.password=<yourPostgreSQLPassword>**
   - **spring.jpa.hibernate.ddl-auto=update**: This will tell Hibernate to check for entities, compare them with existing tables, and create or update tables/columns accordingly
