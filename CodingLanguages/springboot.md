@@ -11,7 +11,7 @@
 7. Choose Lombok which gives you lots of boilerplate options to add to your projects
 8. Once your new folder is in your work environment, connect your prepared PostgreSQL database
 9. To run an application once finished and in your project directory, run **./mvnw spring-boot:run**
-10. If any ports are running, do **netstat -ano | findstr :/<port-number>** then **taskkill /PID /<PID> /F**
+10. If any ports are running, do **netstat -ano | findstr :\<port-number>** then **taskkill /PID \<PID> /F**
 
 ## Important and common dependencies
 
