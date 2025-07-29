@@ -29,6 +29,8 @@
   - The function passed in can be used to tell sorted how to sort the data
 - **.sort()** sorts the original list directly
   - Can do **.sort(reverse=True)** if you want the list sorted in descending order
+  - You can also add in a function to tell .sort() how you'd like your data sorted
+    - intervals.sort(key = lambda i : i[0])
 - **.strip()** removes leading and trailing whitespace
   - Can also use **.rstrip()** and **.lstrip()** if you only want the leading or only the trailing whitespace taken off
 - **.split(ch)** can split a string at the given character and return a list
