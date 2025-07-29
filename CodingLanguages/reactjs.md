@@ -2,8 +2,7 @@
 
 ## Getting started
 
-- To get a basic react project and the needed files, run **npm create vite@latest**
-- Enter your project name
+- To get a basic react project and the needed files, run **npm create vite@latest \<project-name>**
 - Select the React framework
 - Then select Javascript 
 - Follow the rest of the install instructions
